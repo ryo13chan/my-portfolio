@@ -35,30 +35,45 @@ export default Vue.extend({
 <style lang="scss" scoped>
 @import '~/assets/scss/_variable.scss';
 
+@mixin heading($size: 1rem, $weight: bold) {
+  font-size: $size;
+  font-weight: $weight;
+}
+@mixin border-bottom($size: 4px) {
+  border-bottom: $size solid $base-color;
+  padding-bottom: 10px;
+}
+@mixin border-left($size: 2px) {
+  border-left: $size solid $base-color;
+  padding-left: 6px;
+}
+
 .heading {
   color: $text-color;
-  &__inner {
-    margin-left: 10px;
-  }
 }
 .heading_level {
   &1 {
-    font-size: 2.5rem;
+    @include heading(2.5rem);
   }
   &2 {
-    font-size: 2rem;
+    @include heading(2rem);
+    @include border-bottom(4px);
+    text-align: center;
   }
   &3 {
-    font-size: 1.75rem;
+    @include heading(1.75rem);
+    @include border-bottom(1.5px);
+    text-align: center;
   }
   &4 {
-    font-size: 1.5rem;
+    @include heading(1.5rem);
+    @include border-left(2px);
   }
   &5 {
-    font-size: 1.25rem;
+    @include heading(1.25rem);
   }
   &6 {
-    font-size: 1rem;
+    @include heading(1rem, normal);
   }
 }
 </style>
