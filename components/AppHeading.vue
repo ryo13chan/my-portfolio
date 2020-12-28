@@ -1,5 +1,9 @@
 <template>
-  <component class="heading" :class="`heading_level${level}`" :is="headingTag(level)">
+  <component
+    :is="headingTag(level)"
+    class="heading"
+    :class="`heading_level${level}`"
+  >
     {{ text }}
   </component>
 </template>
@@ -9,27 +13,27 @@ import Vue from 'vue'
 
 export default Vue.extend({
   props: {
-   level: {
-     type: Number,
-     required: false,
-     default: 1,
-   },
-   text: {
-     type: String,
-     required: false,
-     default: 'heading'
-   }
- },
+    level: {
+      type: Number,
+      required: false,
+      default: 1,
+    },
+    text: {
+      type: String,
+      required: false,
+      default: 'heading',
+    },
+  },
   methods: {
     headingTag(level: Number) {
-      return `h${level}`;
-    }
-  }
+      return `h${level}`
+    },
+  },
 })
 </script>
 
 <style lang="scss" scoped>
-@import "~/assets/scss/_variable.scss";
+@import '~/assets/scss/_variable.scss';
 
 .heading {
   color: $text-color;
@@ -38,22 +42,22 @@ export default Vue.extend({
   }
 }
 .heading_level {
-  &1{
+  &1 {
     font-size: 2.5rem;
   }
-  &2{
+  &2 {
     font-size: 2rem;
   }
-  &3{
+  &3 {
     font-size: 1.75rem;
   }
-  &4{
+  &4 {
     font-size: 1.5rem;
   }
-  &5{
+  &5 {
     font-size: 1.25rem;
   }
-  &6{
+  &6 {
     font-size: 1rem;
   }
 }

@@ -3,9 +3,8 @@
     <div class="header__inner">
       <div class="header__left">
         <figure class="avatar">
-          <img class="avatar__image" :src="avatarUrl" alt="アバター"/>
+          <img class="avatar__image" :src="avatarUrl" alt="アバター" />
         </figure>
-        <!-- <AppHeading :level="1"  :text="`Ryo's Portfolio`"/> -->
       </div>
       <div class="header__right">
         <nav class="navigation">
@@ -56,22 +55,18 @@
 
 <script lang="ts">
 import Vue from 'vue'
-import AppHeading from '~/components/AppHeading.vue'
 
 export default Vue.extend({
-  components: {
-    AppHeading,
-  },
   data() {
     return {
-      avatarUrl: require("~/assets/images/icon.jpg")
+      avatarUrl: require('~/assets/images/icon.jpg'),
     }
-  }
+  },
 })
 </script>
 
 <style lang="scss" scoped>
-@import "~/assets/scss/_variable.scss";
+@import '~/assets/scss/_variable.scss';
 
 .header {
   border-bottom: 1px solid #ddd;
