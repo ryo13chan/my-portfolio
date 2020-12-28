@@ -2,9 +2,10 @@
   <header class="header">
     <div class="header__inner">
       <div class="header__left">
-        <h1 class="lavel1-heading">
-          <span class="level1-heading__inner">Ryo's Portfolio</span>
-        </h1>
+        <figure class="avatar">
+          <img class="avatar__image" :src="avatarUrl" alt="アバター"/>
+        </figure>
+        <!-- <AppHeading :level="1"  :text="`Ryo's Portfolio`"/> -->
       </div>
       <div class="header__right">
         <nav class="navigation">
@@ -55,11 +56,23 @@
 
 <script lang="ts">
 import Vue from 'vue'
+import AppHeading from '~/components/AppHeading.vue'
 
-export default Vue.extend({})
+export default Vue.extend({
+  components: {
+    AppHeading,
+  },
+  data() {
+    return {
+      avatarUrl: require("~/assets/images/icon.jpg")
+    }
+  }
+})
 </script>
 
 <style lang="scss" scoped>
+@import "~/assets/scss/_variable.scss";
+
 .header {
   border-bottom: 1px solid #ddd;
   &__inner {
@@ -68,6 +81,9 @@ export default Vue.extend({})
     justify-content: space-between;
   }
   &__left {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
     padding: 5px;
     width: 30%;
   }
@@ -76,10 +92,11 @@ export default Vue.extend({})
     width: 50%;
   }
 }
-.lavel1-heading {
-  color: rgb(109, 110, 112);
-  &__inner {
-    margin-left: 10px;
+.avatar {
+  &__image {
+    border-radius: 50%;
+    height: 60px;
+    width: 60px;
   }
 }
 .navigation {
@@ -91,12 +108,16 @@ export default Vue.extend({})
     list-style: none;
   }
   &__link {
-    color: rgb(109, 110, 112);
+    color: $text-color;
     text-decoration: none;
+    transition: color 0.5s;
     &--active {
-      color: #7cc7e8;
-      border-bottom: 1px solid #7cc7e8;
+      color: $base-color;
+      border-bottom: 1px solid $base-color;
       padding-bottom: 5px;
+    }
+    &:hover {
+      color: $base-color;
     }
   }
 }

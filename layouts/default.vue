@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="default">
     <AppHeader />
     <Nuxt />
   </div>
@@ -15,3 +15,11 @@ export default Vue.extend({
   },
 })
 </script>
+
+<style lang="scss" scoped>
+@import "~/assets/scss/_variable.scss";
+
+.default {
+  color: $text-color;
+}
+</style>
