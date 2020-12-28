@@ -4,17 +4,22 @@
       <section class="content">
         <div class="welcome">
           <div class="welcome__body">
-            <AppHeading class="welcome__title" :level="1"  :text="`Welcome to Ryo's Portfolio!`"/>
+            <AppHeading
+              class="welcome__title"
+              :level="1"
+              :text="`Welcome to Ryo's Portfolio!`"
+            />
             <p class="welcome__text">
-              はじめまして。<br>
-              Webエンジニアの<span class="welcome__text--emphasis">Ryo</span>と申します。<br>
-              当サイトはWebエンジニアとしてのポートフォリオです。<br>
-              是非ご覧ください！<br>
+              はじめまして。<br />
+              Webエンジニアの<span class="welcome__text--emphasis">Ryo</span
+              >と申します。<br />
+              当サイトはWebエンジニアとしてのポートフォリオです。<br />
+              是非ご覧ください！<br />
             </p>
           </div>
           <div class="welcome__image">
             <figure class="avatar">
-              <img class="avatar__image" :src="avatarUrl" alt="アバター"/>
+              <img class="avatar__image" :src="avatarUrl" alt="アバター" />
             </figure>
           </div>
         </div>
@@ -33,14 +38,14 @@ export default Vue.extend({
   },
   data() {
     return {
-      avatarUrl: require("~/assets/images/icon.jpg")
+      avatarUrl: require('~/assets/images/icon.jpg'),
     }
-  }
+  },
 })
 </script>
 
 <style lang="scss" scoped>
-@import "~/assets/scss/_variable.scss";
+@import '~/assets/scss/_variable.scss';
 .content {
   max-width: 1230px;
   padding: 60px 15px;
