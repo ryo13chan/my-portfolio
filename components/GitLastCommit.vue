@@ -54,7 +54,7 @@ export default Vue.extend({
     // 最新のコミットを取得
     async fetchGitLastCommit(): Promise<void> {
       // Github APIから最新のコミットを取得
-      axios
+      await axios
         .get(
           'https://api.github.com/repos/ryo13chan/my-portfolio/commits/master'
         )
