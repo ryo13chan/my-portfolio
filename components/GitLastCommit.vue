@@ -82,7 +82,7 @@ export default Vue.extend({
 }
 
 .commit {
-  width: 400px;
+  width: 500px;
   &__header {
     padding: 5px;
     display: flex;
