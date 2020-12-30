@@ -5,6 +5,7 @@
         <figure class="avatar">
           <img class="avatar__image" :src="avatarUrl" alt="アバター" />
         </figure>
+        <GitLastCommit />
       </div>
       <div class="header__right">
         <nav class="navigation">
@@ -55,8 +56,12 @@
 
 <script lang="ts">
 import Vue from 'vue'
+import GitLastCommit from '~/components/GitLastCommit.vue'
 
 export default Vue.extend({
+  components: {
+    GitLastCommit,
+  },
   data() {
     return {
       avatarUrl: require('~/assets/images/icon.jpg'),
@@ -78,9 +83,8 @@ export default Vue.extend({
   &__left {
     display: flex;
     align-items: center;
-    justify-content: space-between;
     padding: 5px;
-    width: 30%;
+    width: 50%;
   }
   &__right {
     padding: 5px;
