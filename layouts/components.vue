@@ -2,7 +2,7 @@
   <div class="components">
     <AppHeader />
     <div class="content">
-      <aside class="content__side">サイドバー</aside>
+      <SideMenu />
       <div class="content__main">
         <Nuxt />
       </div>
@@ -30,9 +30,6 @@ export default Vue.extend({
 .content {
   display: flex;
   justify-content: space-between;
-  &__side {
-    flex: 0 0 260px;
-  }
   &__main {
     flex: 1;
   }
