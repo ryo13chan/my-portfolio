@@ -48,6 +48,7 @@ export default Vue.extend({
       menuList: [
         { title: 'ボタン', to: '/works/components/button' },
         { title: 'モーダル', to: '/works/components/modal' },
+        { title: '見出し', to: '/works/components/heading' },
       ],
     }
   },
