@@ -7,7 +7,9 @@
       <span v-if="isDisplayNewLabel()" class="commit__label--new">new</span>
     </div>
     <div class="commit__comment">
-      {{ commitMessage }}
+      <a class="commit__link" :href="commitUrl" target="_blank">
+        {{ commitMessage }}
+      </a>
     </div>
   </div>
 </template>
@@ -19,6 +21,7 @@ import axios from 'axios'
 interface Data {
   commitDate: Date
   commitMessage: string
+  commitUrl: string
 }
 
 export default Vue.extend({
@@ -26,6 +29,7 @@ export default Vue.extend({
     return {
       commitDate: new Date(),
       commitMessage: '',
+      commitUrl: '',
     }
   },
   created() {
@@ -66,6 +70,8 @@ export default Vue.extend({
           this.commitMessage = responce.data.commit.message
           // コミット日時
           this.commitDate = new Date(responce.data.commit.committer.date)
+          // コミットページURL
+          this.commitUrl = responce.data.html_url
         })
     },
   },
@@ -105,6 +111,13 @@ export default Vue.extend({
     font-size: 1.5rem;
     white-space: nowrap;
     animation: typing 4s steps(44, end);
+  }
+  &__link {
+    color: $text-color;
+    text-decoration: none;
+    &:hover {
+      text-decoration: underline;
+    }
   }
 }
 </style>

@@ -3,6 +3,7 @@
     <article>
       <section class="content">
         <AppHeading :level="2" :text="'モーダル'" />
+        <p class="content__text">モーダルの一覧です。</p>
       </section>
       <section>
         <PageLinks
