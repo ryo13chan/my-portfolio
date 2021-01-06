@@ -32,7 +32,7 @@ export default {
   ],
 
   // Modules (https://go.nuxtjs.dev/config-modules)
-  modules: ['@nuxtjs/axios'],
+  modules: ['@nuxtjs/axios', 'nuxt-fontawesome'],
 
   axios: {},
 
@@ -41,5 +41,18 @@ export default {
 
   router: {
     base: process.env.BASE,
+  },
+
+  fontawesome: {
+    imports: [
+      {
+        set: '@fortawesome/free-solid-svg-icons',
+        icons: ['faArrowLeft'],
+      },
+      {
+        set: '@fortawesome/free-solid-svg-icons',
+        icons: ['faArrowRight'],
+      },
+    ],
   },
 }

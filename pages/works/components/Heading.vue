@@ -18,19 +18,21 @@
           <AppHeading class="content__title" :level="6" :text="'見出し6'" />
         </div>
       </section>
+      <section>
+        <PageLinks
+          :prev="{ title: 'ボタン', to: '/works/components/button' }"
+          :next="{ title: 'モーダル', to: '/works/components/modal' }"
+        />
+      </section>
     </article>
   </main>
 </template>
 
 <script lang="ts">
 import Vue from 'vue'
-import AppHeading from '~/components/AppHeading.vue'
 
 export default Vue.extend({
   layout: 'components',
-  components: {
-    AppHeading,
-  },
   data() {
     return {}
   },

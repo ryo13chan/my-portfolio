@@ -47,8 +47,8 @@ export default Vue.extend({
       searchWords: '',
       menuList: [
         { title: 'ボタン', to: '/works/components/button' },
-        { title: 'モーダル', to: '/works/components/modal' },
         { title: '見出し', to: '/works/components/heading' },
+        { title: 'モーダル', to: '/works/components/modal' },
       ],
     }
   },

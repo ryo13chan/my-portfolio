@@ -3,6 +3,13 @@
     <article>
       <section class="content">
         <AppHeading :level="2" :text="'ボタン'" />
+        <p class="content__text">ボタンの一覧です。</p>
+      </section>
+      <section>
+        <PageLinks
+          :prev="{ title: 'コンポーネント集', to: '/works/components' }"
+          :next="{ title: '見出し', to: '/works/components/heading' }"
+        />
       </section>
     </article>
   </main>
@@ -10,13 +17,9 @@
 
 <script lang="ts">
 import Vue from 'vue'
-import AppHeading from '~/components/AppHeading.vue'
 
 export default Vue.extend({
   layout: 'components',
-  components: {
-    AppHeading,
-  },
   data() {
     return {}
   },
@@ -30,5 +33,8 @@ export default Vue.extend({
   padding: 20px 15px;
   margin-right: auto;
   margin-left: auto;
+  &__text {
+    font-size: 1.5rem;
+  }
 }
 </style>

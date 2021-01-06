@@ -30,12 +30,8 @@
 
 <script lang="ts">
 import Vue from 'vue'
-import AppHeading from '~/components/AppHeading.vue'
 
 export default Vue.extend({
-  components: {
-    AppHeading,
-  },
   data() {
     return {
       avatarUrl: require('~/assets/images/icon.jpg'),

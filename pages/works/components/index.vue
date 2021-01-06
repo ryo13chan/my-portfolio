@@ -11,19 +11,20 @@
           ポートフォリオ内で使用しているコンポーネントの一覧です。
         </p>
       </section>
+      <section>
+        <PageLinks
+          :next="{ title: 'ボタン', to: '/works/components/button' }"
+        />
+      </section>
     </article>
   </main>
 </template>
 
 <script lang="ts">
 import Vue from 'vue'
-import AppHeading from '~/components/AppHeading.vue'
 
 export default Vue.extend({
   layout: 'components',
-  components: {
-    AppHeading,
-  },
   data() {
     return {}
   },

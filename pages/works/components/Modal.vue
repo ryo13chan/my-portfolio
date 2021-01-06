@@ -4,19 +4,20 @@
       <section class="content">
         <AppHeading :level="2" :text="'モーダル'" />
       </section>
+      <section>
+        <PageLinks
+          :prev="{ title: '見出し', to: '/works/components/heading' }"
+        />
+      </section>
     </article>
   </main>
 </template>
 
 <script lang="ts">
 import Vue from 'vue'
-import AppHeading from '~/components/AppHeading.vue'
 
 export default Vue.extend({
   layout: 'components',
-  components: {
-    AppHeading,
-  },
   data() {
     return {}
   },
@@ -30,5 +31,8 @@ export default Vue.extend({
   padding: 20px 15px;
   margin-right: auto;
   margin-left: auto;
+  &__text {
+    font-size: 1.5rem;
+  }
 }
 </style>

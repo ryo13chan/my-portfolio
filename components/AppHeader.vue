@@ -56,12 +56,8 @@
 
 <script lang="ts">
 import Vue from 'vue'
-import GitLastCommit from '~/components/GitLastCommit.vue'
 
 export default Vue.extend({
-  components: {
-    GitLastCommit,
-  },
   data() {
     return {
       avatarUrl: require('~/assets/images/icon.jpg'),
