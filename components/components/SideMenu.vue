@@ -46,6 +46,7 @@ export default Vue.extend({
     return {
       searchWords: '',
       menuList: [
+        { title: 'フラッシュメッセージ', to: '/works/components/flashMessage' },
         { title: 'ボタン', to: '/works/components/button' },
         { title: '見出し', to: '/works/components/heading' },
         { title: 'モーダル', to: '/works/components/modal' },

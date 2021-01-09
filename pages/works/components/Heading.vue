@@ -2,20 +2,16 @@
   <main>
     <article>
       <section class="content">
-        <AppHeading class="content__title" :level="2" :text="'見出し'" />
+        <AppHeading class="content__title" :level="2" text="見出し" />
         <p class="content__text">見出しの一覧です。</p>
-        <AppHeading
-          class="content__title"
-          :level="3"
-          :text="'見出し（h1〜h6）'"
-        />
+        <AppHeading class="content__title" :level="3" text="基本形" />
         <div class="content__area">
-          <AppHeading class="content__title" :level="1" :text="'見出し1'" />
-          <AppHeading class="content__title" :level="2" :text="'見出し2'" />
-          <AppHeading class="content__title" :level="3" :text="'見出し3'" />
-          <AppHeading class="content__title" :level="4" :text="'見出し4'" />
-          <AppHeading class="content__title" :level="5" :text="'見出し5'" />
-          <AppHeading class="content__title" :level="6" :text="'見出し6'" />
+          <AppHeading :level="1" text="見出し1" />
+          <AppHeading :level="2" text="見出し2" />
+          <AppHeading :level="3" text="見出し3" />
+          <AppHeading :level="4" text="見出し4" />
+          <AppHeading :level="5" text="見出し5" />
+          <AppHeading :level="6" text="見出し6" />
         </div>
       </section>
       <section>

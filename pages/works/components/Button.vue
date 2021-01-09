@@ -7,7 +7,10 @@
       </section>
       <section>
         <PageLinks
-          :prev="{ title: 'コンポーネント集', to: '/works/components' }"
+          :prev="{
+            title: 'フラッシュメッセージ',
+            to: '/works/components/flashMessage',
+          }"
           :next="{ title: '見出し', to: '/works/components/heading' }"
         />
       </section>

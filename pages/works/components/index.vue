@@ -13,7 +13,10 @@
       </section>
       <section>
         <PageLinks
-          :next="{ title: 'ボタン', to: '/works/components/button' }"
+          :next="{
+            title: 'フラッシュメッセージ',
+            to: '/works/components/flashMessage',
+          }"
         />
       </section>
     </article>
