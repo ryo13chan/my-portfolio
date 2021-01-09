@@ -48,7 +48,7 @@ export default Vue.extend({
     }
   },
   watch: {
-    show(newVal: boolean, oldVal: boolean) {
+    show(newVal: boolean) {
       this.localShow = newVal
     },
   },

@@ -43,11 +43,13 @@ export default Vue.extend({
     prev: {
       type: Object as PropType<link>,
       required: false,
+      default: null,
     },
     // 次のページ
     next: {
       type: Object as PropType<link>,
       required: false,
+      default: null,
     },
   },
 })
