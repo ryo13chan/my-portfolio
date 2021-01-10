@@ -19,6 +19,10 @@
 <script lang="ts">
 import Vue from 'vue'
 
+interface Data {
+  localShow: boolean
+}
+
 export default Vue.extend({
   props: {
     variant: {
@@ -26,23 +30,26 @@ export default Vue.extend({
       required: false,
       default: 'primary',
     },
+    // 非表示
     dismissible: {
       type: Boolean,
       required: false,
       default: false,
     },
+    // 表示状態
     show: {
       type: Boolean,
       required: false,
       default: true,
     },
+    // 非表示時のfadeアニメーション
     fade: {
       type: Boolean,
       required: false,
       default: false,
     },
   },
-  data() {
+  data(): Data {
     return {
       localShow: true,
     }
@@ -74,49 +81,71 @@ export default Vue.extend({
   opacity: 0;
 }
 
+@mixin flash-message-modifier($color, $background-color, $border-color) {
+  color: $color;
+  background-color: $background-color;
+  border-color: $border-color;
+}
+
 .flash-message {
   padding: 1rem;
   position: relative;
   border-radius: 0.25rem;
   &.flash-message--primary {
-    color: #004085;
-    background-color: #cce5ff;
-    border-color: #b8daff;
+    @include flash-message-modifier(
+      $button-color-primary,
+      $button-background-color-primary,
+      $button-border-color-primary
+    );
   }
   &.flash-message--secondary {
-    color: #383d41;
-    background-color: #e2e3e5;
-    border-color: #d6d8db;
+    @include flash-message-modifier(
+      $button-color-secondary,
+      $button-background-color-secondary,
+      $button-border-color-secondary
+    );
   }
   &.flash-message--success {
-    color: #155724;
-    background-color: #d4edda;
-    border-color: #c3e6cb;
+    @include flash-message-modifier(
+      $button-color-success,
+      $button-background-color-success,
+      $button-border-color-success
+    );
   }
   &.flash-message--danger {
-    color: #721c24;
-    background-color: #f8d7da;
-    border-color: #f5c6cb;
+    @include flash-message-modifier(
+      $button-color-danger,
+      $button-background-color-danger,
+      $button-border-color-danger
+    );
   }
   &.flash-message--warning {
-    color: #856404;
-    background-color: #fff3cd;
-    border-color: #ffeeba;
+    @include flash-message-modifier(
+      $button-color-warning,
+      $button-background-color-warning,
+      $button-border-color-warning
+    );
   }
   &.flash-message--info {
-    color: #0c5460;
-    background-color: #d1ecf1;
-    border-color: #bee5eb;
+    @include flash-message-modifier(
+      $button-color-info,
+      $button-background-color-info,
+      $button-border-color-info
+    );
   }
   &.flash-message--light {
-    color: #818182;
-    background-color: #fefefe;
-    border-color: #fdfdfe;
+    @include flash-message-modifier(
+      $button-color-light,
+      $button-background-color-light,
+      $button-border-color-light
+    );
   }
   &.flash-message--dark {
-    color: #1b1e21;
-    background-color: #d6d8d9;
-    border-color: #c6c8ca;
+    @include flash-message-modifier(
+      $button-color-dark,
+      $button-background-color-dark,
+      $button-border-color-dark
+    );
   }
 
   &__close-button {

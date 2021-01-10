@@ -53,6 +53,10 @@ export default {
         set: '@fortawesome/free-solid-svg-icons',
         icons: ['faArrowRight'],
       },
+      {
+        set: '@fortawesome/free-solid-svg-icons',
+        icons: ['faTimes'],
+      },
     ],
   },
 }
