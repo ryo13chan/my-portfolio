@@ -2,7 +2,7 @@
   <main>
     <article>
       <section class="content">
-        <AppHeading :level="2" :text="'ボタン'" />
+        <AppHeading :level="2" text="ボタン" />
         <p class="content__text">ボタンの一覧です。</p>
       </section>
       <section>

@@ -2,11 +2,7 @@
   <main>
     <article>
       <section class="content">
-        <AppHeading
-          class="content__title"
-          :level="2"
-          :text="'コンポーネント集'"
-        />
+        <AppHeading class="content__title" :level="2" text="コンポーネント集" />
         <p class="content__text">
           ポートフォリオ内で使用しているコンポーネントの一覧です。
         </p>
@@ -14,8 +10,8 @@
       <section>
         <PageLinks
           :next="{
-            title: 'フラッシュメッセージ',
-            to: '/works/components/flashMessage',
+            title: 'アコーディオン',
+            to: '/works/components/accordion',
           }"
         />
       </section>

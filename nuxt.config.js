@@ -57,6 +57,14 @@ export default {
         set: '@fortawesome/free-solid-svg-icons',
         icons: ['faTimes'],
       },
+      {
+        set: '@fortawesome/free-solid-svg-icons',
+        icons: ['faCaretUp'],
+      },
+      {
+        set: '@fortawesome/free-solid-svg-icons',
+        icons: ['faCaretDown'],
+      },
     ],
   },
 }

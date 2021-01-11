@@ -5,7 +5,7 @@
         <AppHeading
           class="content__title"
           :level="2"
-          :text="'フラッシュメッセージ'"
+          text="フラッシュメッセージ"
         />
         <p class="content__text">フラッシュメッセージの一覧です。</p>
         <section>
@@ -73,7 +73,7 @@
       </section>
       <section>
         <PageLinks
-          :prev="{ title: 'コンポーネント集', to: '/works/components' }"
+          :prev="{ title: 'アコーディオン', to: '/works/components/accordion' }"
           :next="{ title: 'ボタン', to: '/works/components/button' }"
         />
       </section>
