@@ -32,13 +32,5 @@ export default Vue.extend({
 
 <style lang="scss" scoped>
 @import '~/assets/scss/_variable.scss';
-.content {
-  max-width: 1230px;
-  padding: 20px 15px;
-  margin-right: auto;
-  margin-left: auto;
-  &__text {
-    font-size: 1.5rem;
-  }
-}
+@import '~/assets/scss/components/content.scss';
 </style>

@@ -51,6 +51,7 @@ export default Vue.extend({
         { title: 'ボタン', to: '/works/components/button' },
         { title: '見出し', to: '/works/components/heading' },
         { title: 'モーダル', to: '/works/components/modal' },
+        { title: 'ラベル', to: '/works/components/label' },
       ],
     }
   },
@@ -63,7 +64,7 @@ export default Vue.extend({
   },
   methods: {
     // 検索ボックスを表示するか
-    isDisplaySearchBox() {
+    isDisplaySearchBox(): boolean {
       // コンポーネント集ページのみ表示
       return this.$route.path === '/works/components'
     },

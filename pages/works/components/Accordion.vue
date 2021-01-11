@@ -85,19 +85,8 @@ export default Vue.extend({
 
 <style lang="scss" scoped>
 @import '~/assets/scss/_variable.scss';
-.content {
-  max-width: 1230px;
-  padding: 20px 15px;
-  margin-right: auto;
-  margin-left: auto;
-  &__text {
-    font-size: 1.5rem;
-  }
-  &__area {
-    padding: 2rem;
-    border: 1px solid lighten($text-color, 40%);
-  }
-}
+@import '~/assets/scss/components/content.scss';
+
 .accordion {
   &__body {
     padding: 15px;

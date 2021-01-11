@@ -8,7 +8,7 @@
       <slot>Primary Flash Message</slot>
       <font-awesome-icon
         v-if="dismissible"
-        class="flash-message__close-button"
+        class="flash-message__close-flash-message"
         :icon="['fas', 'times']"
         @click="clickHandler"
       />
@@ -93,62 +93,62 @@ export default Vue.extend({
   border-radius: 0.25rem;
   &.flash-message--primary {
     @include flash-message-modifier(
-      $button-color-primary,
-      $button-background-color-primary,
-      $button-border-color-primary
+      $flash-message-color-primary,
+      $flash-message-background-color-primary,
+      $flash-message-border-color-primary
     );
   }
   &.flash-message--secondary {
     @include flash-message-modifier(
-      $button-color-secondary,
-      $button-background-color-secondary,
-      $button-border-color-secondary
+      $flash-message-color-secondary,
+      $flash-message-background-color-secondary,
+      $flash-message-border-color-secondary
     );
   }
   &.flash-message--success {
     @include flash-message-modifier(
-      $button-color-success,
-      $button-background-color-success,
-      $button-border-color-success
+      $flash-message-color-success,
+      $flash-message-background-color-success,
+      $flash-message-border-color-success
     );
   }
   &.flash-message--danger {
     @include flash-message-modifier(
-      $button-color-danger,
-      $button-background-color-danger,
-      $button-border-color-danger
+      $flash-message-color-danger,
+      $flash-message-background-color-danger,
+      $flash-message-border-color-danger
     );
   }
   &.flash-message--warning {
     @include flash-message-modifier(
-      $button-color-warning,
-      $button-background-color-warning,
-      $button-border-color-warning
+      $flash-message-color-warning,
+      $flash-message-background-color-warning,
+      $flash-message-border-color-warning
     );
   }
   &.flash-message--info {
     @include flash-message-modifier(
-      $button-color-info,
-      $button-background-color-info,
-      $button-border-color-info
+      $flash-message-color-info,
+      $flash-message-background-color-info,
+      $flash-message-border-color-info
     );
   }
   &.flash-message--light {
     @include flash-message-modifier(
-      $button-color-light,
-      $button-background-color-light,
-      $button-border-color-light
+      $flash-message-color-light,
+      $flash-message-background-color-light,
+      $flash-message-border-color-light
     );
   }
   &.flash-message--dark {
     @include flash-message-modifier(
-      $button-color-dark,
-      $button-background-color-dark,
-      $button-border-color-dark
+      $flash-message-color-dark,
+      $flash-message-background-color-dark,
+      $flash-message-border-color-dark
     );
   }
 
-  &__close-button {
+  &__close-flash-message {
     position: absolute;
     top: 0;
     right: 0;

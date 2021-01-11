@@ -4,7 +4,7 @@
       <span class="commit__date">
         {{ displayCommitDate() }}
       </span>
-      <span v-if="isDisplayNewLabel()" class="commit__label--new">new</span>
+      <AppLabel v-if="isDisplayNewLabel()" text="New" variant="warning" />
     </div>
     <div class="commit__comment">
       <a class="commit__link" :href="commitUrl" target="_blank">
@@ -97,11 +97,6 @@ export default Vue.extend({
   &__date {
     margin-right: 1rem;
     color: $base-color;
-  }
-  &__label--new {
-    background-color: $label-new-background-color;
-    color: #fff;
-    padding: 3px 5px;
   }
   &__comment {
     padding: 5px;
