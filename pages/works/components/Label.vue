@@ -2,6 +2,7 @@
   <main>
     <article>
       <section class="content">
+        <AppBreadcrumb :items="breadcrumbItems" />
         <AppHeading class="content__title" :level="2" text="ラベル" />
         <p class="content__text">ラベルの一覧です。</p>
         <section>
@@ -165,13 +166,24 @@
 
 <script lang="ts">
 import Vue from 'vue'
+import { breadcrumbItem } from '~/components/AppBreadcrumb.vue'
 
-interface Data {}
+interface Data {
+  breadcrumbItems: Array<breadcrumbItem>
+}
 
 export default Vue.extend({
   layout: 'components',
   data(): Data {
-    return {}
+    return {
+      breadcrumbItems: [
+        { to: '/works', text: '作品集' },
+        { to: '/works/components', text: 'コンポーネント集' },
+        {
+          text: 'ラベル',
+        },
+      ],
+    }
   },
   methods: {},
 })

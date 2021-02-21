@@ -47,6 +47,7 @@ export default Vue.extend({
       searchWords: '',
       menuList: [
         { title: 'アコーディオン', to: '/works/components/accordion' },
+        { title: 'パンくずリスト', to: '/works/components/breadcrumb' },
         { title: 'フラッシュメッセージ', to: '/works/components/flashMessage' },
         { title: 'ボタン', to: '/works/components/button' },
         { title: '見出し', to: '/works/components/heading' },

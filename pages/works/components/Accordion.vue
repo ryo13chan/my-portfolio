@@ -2,6 +2,7 @@
   <main>
     <article>
       <section class="content">
+        <AppBreadcrumb :items="breadcrumbItems" />
         <AppHeading class="content__title" :level="2" text="アコーディオン" />
         <p class="content__text">アコーディオンの一覧です。</p>
         <section>
@@ -51,8 +52,8 @@
         <PageLinks
           :prev="{ title: 'コンポーネント集', to: '/works/components' }"
           :next="{
-            title: 'フラッシュメッセージ',
-            to: '/works/components/flashMessage',
+            title: 'アコーディオン',
+            to: '/works/components/breadcrumb',
           }"
         />
       </section>
@@ -62,9 +63,11 @@
 
 <script lang="ts">
 import Vue from 'vue'
+import { breadcrumbItem } from '~/components/AppBreadcrumb.vue'
 
 interface Data {
   showFlashMessage: boolean
+  breadcrumbItems: Array<breadcrumbItem>
 }
 
 export default Vue.extend({
@@ -72,6 +75,13 @@ export default Vue.extend({
   data(): Data {
     return {
       showFlashMessage: true,
+      breadcrumbItems: [
+        { to: '/works', text: '作品集' },
+        { to: '/works/components', text: 'コンポーネント集' },
+        {
+          text: 'アコーディオン',
+        },
+      ],
     }
   },
   methods: {

@@ -2,6 +2,7 @@
   <main>
     <article>
       <section class="content">
+        <AppBreadcrumb :items="breadcrumbItems" />
         <AppHeading class="content__title" :level="2" text="見出し" />
         <p class="content__text">見出しの一覧です。</p>
         <AppHeading class="content__title" :level="3" text="基本形" />
@@ -26,11 +27,24 @@
 
 <script lang="ts">
 import Vue from 'vue'
+import { breadcrumbItem } from '~/components/AppBreadcrumb.vue'
+
+interface Data {
+  breadcrumbItems: Array<breadcrumbItem>
+}
 
 export default Vue.extend({
   layout: 'components',
   data() {
-    return {}
+    return {
+      breadcrumbItems: [
+        { to: '/works', text: '作品集' },
+        { to: '/works/components', text: 'コンポーネント集' },
+        {
+          text: '見出し',
+        },
+      ],
+    }
   },
 })
 </script>
