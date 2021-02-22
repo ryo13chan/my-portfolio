@@ -52,7 +52,7 @@
         <PageLinks
           :prev="{ title: 'コンポーネント集', to: '/works/components' }"
           :next="{
-            title: 'アコーディオン',
+            title: 'パンくずリスト',
             to: '/works/components/breadcrumb',
           }"
         />
