@@ -18,9 +18,13 @@
             </p>
           </div>
           <div class="welcome__image">
-            <figure class="avatar">
-              <img class="avatar__image" :src="avatarUrl" alt="アバター" />
-            </figure>
+            <AppAvatar
+              class="avatar"
+              link
+              to="/"
+              :size="300"
+              :src="avatarUrl"
+            />
           </div>
         </div>
       </section>
@@ -52,6 +56,7 @@ export default Vue.extend({
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
+  align-items: center;
   &__body {
     flex: 1;
   }
@@ -72,10 +77,5 @@ export default Vue.extend({
   }
 }
 .avatar {
-  &__image {
-    border-radius: 50%;
-    height: 300px;
-    width: 300px;
-  }
 }
 </style>

@@ -52,8 +52,8 @@
         <PageLinks
           :prev="{ title: 'コンポーネント集', to: '/works/components' }"
           :next="{
-            title: 'パンくずリスト',
-            to: '/works/components/breadcrumb',
+            title: 'アバター',
+            to: '/works/components/avatar',
           }"
         />
       </section>

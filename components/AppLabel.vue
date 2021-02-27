@@ -1,11 +1,5 @@
 <template>
-  <span
-    class="label"
-    :class="[
-      variant ? `label--${variant}` : '',
-      { 'label--outline': outline, 'label--round': round },
-    ]"
-  >
+  <span class="label" :class="classes">
     {{ text }}
   </span>
 </template>
@@ -40,7 +34,14 @@ export default Vue.extend({
   data(): Data {
     return {}
   },
-  methods: {},
+  computed: {
+    classes() {
+      return [
+        this.variant ? `label--${this.variant}` : '',
+        { 'label--outline': this.outline, 'label--round': this.round },
+      ]
+    },
+  },
 })
 </script>
 

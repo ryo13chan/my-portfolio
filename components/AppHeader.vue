@@ -2,9 +2,7 @@
   <header class="header">
     <div class="header__inner">
       <div class="header__left">
-        <figure class="avatar">
-          <img class="avatar__image" :src="avatarUrl" alt="アバター" />
-        </figure>
+        <AppAvatar class="avatar" link to="/" :src="avatarUrl" />
         <GitLastCommit />
       </div>
       <div class="header__right">
@@ -88,11 +86,8 @@ export default Vue.extend({
   }
 }
 .avatar {
-  &__image {
-    border-radius: 50%;
-    height: 60px;
-    width: 60px;
-  }
+  margin-right: 40px;
+  margin-left: 25px;
 }
 .navigation {
   &__inner {

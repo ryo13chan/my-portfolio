@@ -65,6 +65,10 @@ export default {
         set: '@fortawesome/free-solid-svg-icons',
         icons: ['faCaretDown'],
       },
+      {
+        set: '@fortawesome/free-solid-svg-icons',
+        icons: ['faUser'],
+      },
     ],
   },
 }

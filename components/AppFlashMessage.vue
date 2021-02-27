@@ -1,10 +1,6 @@
 <template>
   <transition :name="fade ? 'fade' : ''">
-    <div
-      v-if="localShow"
-      class="flash-message"
-      :class="[variant ? `flash-message--${variant}` : '']"
-    >
+    <div v-if="localShow" class="flash-message" :class="classes">
       <slot>Primary Flash Message</slot>
       <font-awesome-icon
         v-if="dismissible"
@@ -54,10 +50,18 @@ export default Vue.extend({
       localShow: true,
     }
   },
+  computed: {
+    classes() {
+      return [this.variant ? `flash-message--${this.variant}` : '']
+    },
+  },
   watch: {
     show(newVal: boolean) {
       this.localShow = newVal
     },
+  },
+  created() {
+    this.localShow = this.show
   },
   methods: {
     clickHandler(e: Event) {
