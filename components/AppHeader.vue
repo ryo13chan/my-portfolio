@@ -68,7 +68,11 @@ export default Vue.extend({
 @import '~/assets/scss/_variable.scss';
 
 .header {
+  position: sticky;
+  position: -webkit-sticky;
+  top: 0;
   border-bottom: 1px solid #ddd;
+  background-color: $color-white;
   &__inner {
     display: flex;
     align-items: center;
