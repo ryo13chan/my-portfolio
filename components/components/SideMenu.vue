@@ -48,6 +48,7 @@ export default Vue.extend({
       menuList: [
         { title: 'アコーディオン', to: '/works/components/accordion' },
         { title: 'アバター', to: '/works/components/avatar' },
+        { title: 'カード', to: '/works/components/card' },
         { title: 'パンくずリスト', to: '/works/components/breadcrumb' },
         { title: 'フラッシュメッセージ', to: '/works/components/flashMessage' },
         { title: 'ボタン', to: '/works/components/button' },

@@ -10,7 +10,7 @@
           <div class="content__area">
             <AppAccordion title="アコーディオン">
               <template v-slot:body>
-                <div class="accordion__body">
+                <div>
                   <p>アコーディオン中身</p>
                   <p>アコーディオン中身</p>
                   <p>アコーディオン中身</p>
@@ -24,7 +24,7 @@
           <div class="content__area">
             <AppAccordion title="タイトル中央寄せ" title-align="center">
               <template v-slot:body>
-                <div class="accordion__body">
+                <div>
                   <p>アコーディオン中身</p>
                   <p>アコーディオン中身</p>
                   <p>アコーディオン中身</p>
@@ -38,7 +38,7 @@
           <div class="content__area">
             <AppAccordion title="ふわっと表示" fade>
               <template v-slot:body>
-                <div class="accordion__body">
+                <div>
                   <p>アコーディオン中身</p>
                   <p>アコーディオン中身</p>
                   <p>アコーディオン中身</p>
@@ -96,10 +96,4 @@ export default Vue.extend({
 <style lang="scss" scoped>
 @import '~/assets/scss/_variable.scss';
 @import '~/assets/scss/components/content.scss';
-
-.accordion {
-  &__body {
-    padding: 15px;
-  }
-}
 </style>

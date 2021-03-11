@@ -73,6 +73,7 @@ export default Vue.extend({
   top: 0;
   border-bottom: 1px solid #ddd;
   background-color: $color-white;
+  z-index: 10;
   &__inner {
     display: flex;
     align-items: center;

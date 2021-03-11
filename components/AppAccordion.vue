@@ -117,6 +117,7 @@ export default Vue.extend({
   }
   &__body {
     border: 1px solid lighten($text-color, 40%);
+    padding: 15px;
     &--transition {
       transition: height 0.4s ease-in-out;
       overflow: hidden;

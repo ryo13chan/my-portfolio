@@ -82,8 +82,8 @@
         <PageLinks
           :prev="{ title: 'アコーディオン', to: '/works/components/accordion' }"
           :next="{
-            title: 'パンくずリスト',
-            to: '/works/components/breadcrumb',
+            title: 'カード',
+            to: '/works/components/card',
           }"
         />
       </section>

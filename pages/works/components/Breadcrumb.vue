@@ -27,8 +27,8 @@
       <section>
         <PageLinks
           :prev="{
-            title: 'アバター',
-            to: '/works/components/avatar',
+            title: 'カード',
+            to: '/works/components/card',
           }"
           :next="{
             title: 'フラッシュメッセージ',
