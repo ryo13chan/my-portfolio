@@ -45,6 +45,14 @@
           </div>
         </section>
         <section>
+          <AppHeading :level="3" text="大きさ" />
+          <div class="content__area">
+            <AppLabel class="labels__item" text="Small" size="sm" />
+            <AppLabel class="labels__item" text="デフォルト" />
+            <AppLabel class="labels__item" text="Large" size="lg" />
+          </div>
+        </section>
+        <section>
           <AppHeading :level="3" text="outline" />
           <div class="content__area">
             <div class="labels">

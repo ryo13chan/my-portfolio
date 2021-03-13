@@ -4,7 +4,12 @@
       <span class="commit__date">
         {{ displayCommitDate() }}
       </span>
-      <AppLabel v-if="isDisplayNewLabel()" text="New" variant="warning" />
+      <AppLabel
+        v-if="isDisplayNewLabel()"
+        text="New"
+        size="sm"
+        variant="warning"
+      />
     </div>
     <div class="commit__comment">
       <a class="commit__link" :href="commitUrl" target="_blank">

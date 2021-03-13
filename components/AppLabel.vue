@@ -20,6 +20,11 @@ export default Vue.extend({
       type: String,
       required: true,
     },
+    size: {
+      type: String,
+      required: false,
+      default: '',
+    },
     outline: {
       type: Boolean,
       required: false,
@@ -38,6 +43,7 @@ export default Vue.extend({
     classes() {
       return [
         this.variant ? `label--${this.variant}` : '',
+        this.size ? `label--${this.size}` : '',
         { 'label--outline': this.outline, 'label--round': this.round },
       ]
     },
@@ -66,9 +72,19 @@ export default Vue.extend({
 }
 
 .label {
-  padding: 0.2rem 0.3rem;
+  padding: 0.375rem 0.75rem;
   font-weight: bold;
+  line-height: 1.5;
   border: 2px solid transparent;
+
+  &--sm {
+    padding: 0.2rem 0.3rem;
+    font-size: 0.8rem;
+  }
+  &--lg {
+    padding: 0.5rem 1rem;
+    font-size: 1.25rem;
+  }
 
   &.label--primary {
     @include label-modifier($color-white, $color-primary, $color-primary);
