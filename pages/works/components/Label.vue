@@ -53,6 +53,21 @@
           </div>
         </section>
         <section>
+          <AppHeading :level="3" text="表示内容のカスタマイズ" />
+          <div class="content__area">
+            <AppLabel class="labels__item" text="左にアイコン">
+              <template v-slot:left>
+                <font-awesome-icon :icon="['fa', 'user']" />
+              </template>
+            </AppLabel>
+            <AppLabel class="labels__item" text="右にアイコン">
+              <template v-slot:right>
+                <font-awesome-icon :icon="['fa', 'user']" />
+              </template>
+            </AppLabel>
+          </div>
+        </section>
+        <section>
           <AppHeading :level="3" text="outline" />
           <div class="content__area">
             <div class="labels">

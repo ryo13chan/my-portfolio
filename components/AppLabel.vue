@@ -1,6 +1,8 @@
 <template>
   <span class="label" :class="classes">
+    <slot name="left"></slot>
     {{ text }}
+    <slot name="right"></slot>
   </span>
 </template>
 
@@ -76,6 +78,7 @@ export default Vue.extend({
   font-weight: bold;
   line-height: 1.5;
   border: 2px solid transparent;
+  border-radius: 0.2rem;
 
   &--sm {
     padding: 0.2rem 0.3rem;

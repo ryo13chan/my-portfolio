@@ -47,27 +47,14 @@ export default {
     imports: [
       {
         set: '@fortawesome/free-solid-svg-icons',
-        icons: ['faArrowLeft'],
-      },
-      {
-        set: '@fortawesome/free-solid-svg-icons',
-        icons: ['faArrowRight'],
-      },
-      {
-        set: '@fortawesome/free-solid-svg-icons',
-        icons: ['faTimes'],
-      },
-      {
-        set: '@fortawesome/free-solid-svg-icons',
-        icons: ['faCaretUp'],
-      },
-      {
-        set: '@fortawesome/free-solid-svg-icons',
-        icons: ['faCaretDown'],
-      },
-      {
-        set: '@fortawesome/free-solid-svg-icons',
-        icons: ['faUser'],
+        icons: [
+          'faArrowLeft',
+          'faArrowRight',
+          'faTimes',
+          'faCaretUp',
+          'faCaretDown',
+          'faUser',
+        ],
       },
     ],
   },
