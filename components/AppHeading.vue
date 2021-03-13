@@ -68,6 +68,8 @@ export default Vue.extend({
   &4 {
     @include heading(1.5rem);
     @include border-left(2px);
+    margin-top: 1rem;
+    margin-bottom: 1rem;
   }
   &5 {
     @include heading(1.25rem);
