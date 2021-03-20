@@ -88,7 +88,9 @@ export default Vue.extend({
 
 .side-menu {
   width: 300px;
+  height: 100vh;
   padding: 20px 20px 0;
+  overflow-y: scroll;
   &__title {
     font-weight: bold;
   }
