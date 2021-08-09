@@ -21,21 +21,22 @@
 
 <script lang="ts">
 import Vue from 'vue'
-import axios from 'axios'
-
-interface Data {
-  commitDate: Date
-  commitMessage: string
-  commitUrl: string
-}
+import { Getters, State } from '~/assets/@types/store/git'
 
 export default Vue.extend({
-  data(): Data {
-    return {
-      commitDate: new Date(),
-      commitMessage: '',
-      commitUrl: '',
-    }
+  computed: {
+    commit(): Getters['commit'] {
+      return this.$store.getters['git/commit']
+    },
+    commitMessage(): State['commit']['message'] {
+      return this.commit.message
+    },
+    commitDate(): State['commit']['date'] {
+      return this.commit.date
+    },
+    commitUrl(): State['commit']['url'] {
+      return this.commit.url
+    },
   },
   created() {
     this.fetchGitLastCommit()
@@ -62,22 +63,7 @@ export default Vue.extend({
     },
     // 最新のコミットを取得
     async fetchGitLastCommit(): Promise<void> {
-      // Github APIから最新のコミットを取得
-      await axios
-        .get(
-          'https://api.github.com/repos/ryo13chan/my-portfolio/commits/master'
-        )
-        .then((responce) => {
-          if (responce.status !== 200) {
-            return
-          }
-          // コミットメッセージ
-          this.commitMessage = responce.data.commit.message
-          // コミット日時
-          this.commitDate = new Date(responce.data.commit.committer.date)
-          // コミットページURL
-          this.commitUrl = responce.data.html_url
-        })
+      await this.$store.dispatch('git/getCommit')
     },
   },
 })
