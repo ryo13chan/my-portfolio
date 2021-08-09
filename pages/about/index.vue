@@ -6,16 +6,44 @@
         <section>
           <AppHeading :level="3" text="当サイトについて" />
           <div class="content__about-this-site">
-            <div>ポートフォリオ</div>
-            <div>作成目的</div>
-            <div>使用技術</div>
+            <div class="content__portfolio">
+              <AppAvatar
+                class="avatar__portfolio"
+                :src="avatarUrl.portfolio"
+                :size="avatarSize"
+              />
+              <div class="avatar__title">ポートフォリオ</div>
+              <div class="avatar__description">
+                ポートフォリオポートフォリオポートフォリオポートフォリオポートフォリオポートフォリオ
+              </div>
+            </div>
+            <div class="content__purpose">
+              <AppAvatar
+                class="avatar__purpose"
+                :src="avatarUrl.purpose"
+                :size="avatarSize"
+              />
+              <div class="avatar__title">作成目的</div>
+              <div class="avatar__description">
+                作成目的作成目的作成目的作成目的作成目的作成目的
+              </div>
+            </div>
+            <div class="content__tech">
+              <AppAvatar
+                class="avatar__tech"
+                :src="avatarUrl.tech"
+                :size="avatarSize"
+              />
+              <div class="avatar__title">使用技術</div>
+              <div class="avatar__description">
+                使用技術使用技術使用技術使用技術使用技術使用技術
+              </div>
+            </div>
           </div>
         </section>
         <section>
           <AppHeading :level="3" text="自己紹介" />
-          <div class="content__self-introduction">
-            json
-          </div>
+          <div class="content__self-introduction">json</div>
         </section>
         <section>
           <AppHeading :level="3" text="経歴" />
@@ -50,9 +78,25 @@
 <script lang="ts">
 import Vue from 'vue'
 
+interface Data {
+  avatarUrl: {
+    portfolio: string
+    purpose: string
+    tech: string
+  }
+  avatarSize: string
+}
+
 export default Vue.extend({
-  data() {
-    return {}
+  data(): Data {
+    return {
+      avatarUrl: {
+        portfolio: require('~/assets/images/about/portfolio.png'),
+        purpose: require('~/assets/images/about/purpose.png'),
+        tech: require('~/assets/images/about/tech.png'),
+      },
+      avatarSize: '200px',
+    }
   },
 })
 </script>
@@ -68,6 +112,23 @@ export default Vue.extend({
   &__about-this-site {
     display: flex;
     justify-content: space-between;
+  }
+
+  &__portfolio,
+  &__purpose,
+  &__tech {
+    width: 32%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+}
+.avatar {
+  &__title {
+    font-weight: bold;
+    font-size: 1.5rem;
+    margin: 1rem 0;
   }
 }
 </style>
