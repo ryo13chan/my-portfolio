@@ -9,6 +9,7 @@
 技術構成・開発コマンドの詳細は [TECH_STACK.md](TECH_STACK.md) を参照。
 
 - 技術構成（依存パッケージ・バージョン・ツール・Node バージョン）に変更があったら、必ず [TECH_STACK.md](TECH_STACK.md) を更新すること。
+- コードはフィーチャーベース構成：ページの中身とテストは `app/features/<name>/pages/`、機能固有の部品は `app/features/<name>/components/`、`app/routes/` はルートの配線（薄いラッパー、`loader`/`meta` はここ）。詳細は [TECH_STACK.md](TECH_STACK.md)。
 
 ## Git 運用ルール
 
