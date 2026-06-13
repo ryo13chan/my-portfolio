@@ -9,8 +9,9 @@
 
 | 区分 | 技術 |
 | --- | --- |
-| フレームワーク | React 19 |
-| ルーティング | React Router 7 |
+| フレームワーク | React Router 7（framework mode） |
+| UI ライブラリ | React 19 |
+| レンダリング | SSG（全ルート prerender、静的ホスティング） |
 | 言語 | TypeScript 6 |
 | ビルドツール | Vite 8 |
 | スタイリング | Tailwind CSS 4 |
@@ -20,16 +21,19 @@
 
 ---
 
-## フロントエンド
+## フロントエンド / ルーティング
 
-- **React** `^19.2.6` — UI ライブラリ
-- **React DOM** `^19.2.6` — DOM レンダリング
-- **React Router** `^7.17.0` — クライアントサイドルーティング（`main.tsx` で `BrowserRouter`、`App.tsx` でルート定義）
+- **React Router** `^7.17.0` — framework mode（ファイルベースルーティング・SSG）。ルート定義は `app/routes.ts`、共通レイアウトは `app/root.tsx`
+- **@react-router/dev** `^7.17.0` — Vite プラグイン・CLI（dev/build/typegen）
+- **@react-router/node** / **@react-router/serve** `^7.17.0` — Node ランタイム（ビルド・prerender 用）
+- **isbot** `^5.1.42` — ボット判定
+- **React** `^19.2.6` / **React DOM** `^19.2.6` — UI ライブラリ
+- **レンダリング**: `react-router.config.ts` で `ssr: false` + `prerender: true`。全ルートをビルド時に静的 HTML 化（SSG）
 
 ## スタイリング
 
 - **Tailwind CSS** `^4.3.0` — ユーティリティファースト CSS
-- **@tailwindcss/vite** `^4.3.0` — Vite プラグイン（`vite.config.ts` で読み込み、`src/index.css` で `@import "tailwindcss"`）
+- **@tailwindcss/vite** `^4.3.0` — Vite プラグイン（`vite.config.ts` で読み込み、`app/app.css` で `@import "tailwindcss"`）
 
 ## 言語・型
 
@@ -40,8 +44,7 @@
 
 ## ビルド・開発環境
 
-- **Vite** `^8.0.12` — 開発サーバー / バンドラー
-- **@vitejs/plugin-react** `^6.0.1` — React 向け Vite プラグイン
+- **Vite** `^8.0.12` — 開発サーバー / バンドラー（React Router プラグイン経由）
 - **Node.js** `v24.16.0`（LTS "Krypton" / `.node-version` で固定、fnm で管理）
 - **pnpm** `11.6.0` — パッケージマネージャ（`package.json` の `packageManager` で固定、corepack 経由）
 
@@ -61,10 +64,10 @@
 | コマンド | 内容 |
 | --- | --- |
 | `pnpm install` | 依存パッケージのインストール |
-| `pnpm run dev` | 開発サーバー起動 (Vite) |
-| `pnpm run build` | 型チェック (`tsc -b`) 後にビルド |
+| `pnpm run dev` | 開発サーバー起動 (React Router + Vite) |
+| `pnpm run build` | 本番ビルド（全ルートを prerender して `build/client` に出力） |
+| `pnpm run typecheck` | 型生成 (`react-router typegen`) 後に `tsc` で型チェック |
 | `pnpm run lint` | ESLint 実行 |
-| `pnpm run preview` | ビルド結果のプレビュー |
 
 ---
 
@@ -72,17 +75,17 @@
 
 ```
 my-portfolio/
-├── public/          # 静的ファイル (favicon, icons など)
-├── src/
-│   ├── assets/      # 画像 (hero.png, logo など)
-│   ├── pages/       # ページコンポーネント (Home, About など)
-│   ├── App.tsx      # ルート定義 (React Router)
-│   ├── main.tsx     # エントリーポイント (BrowserRouter)
-│   ├── App.css
-│   └── index.css
-├── index.html
+├── public/                 # 静的ファイル (favicon など)
+├── app/
+│   ├── routes/             # ページ (home.tsx, about.tsx など)
+│   ├── routes.ts           # ルート定義
+│   ├── root.tsx            # 共通レイアウト (html/head/body)
+│   └── app.css             # Tailwind の読み込み
+├── react-router.config.ts  # framework mode 設定 (SSG)
 ├── vite.config.ts
-├── tsconfig.json    # プロジェクト参照 (app / node に分割)
+├── tsconfig.json
 ├── eslint.config.js
 └── package.json
 ```
+
+> ビルド成果物は `build/client/`（静的ファイル）。型生成は `.react-router/`（いずれも Git 管理外）。
