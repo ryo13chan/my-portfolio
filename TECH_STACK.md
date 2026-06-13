@@ -10,6 +10,7 @@
 | 区分 | 技術 |
 | --- | --- |
 | フレームワーク | React 19 |
+| ルーティング | React Router 7 |
 | 言語 | TypeScript 6 |
 | ビルドツール | Vite 8 |
 | スタイリング | Tailwind CSS 4 |
@@ -23,6 +24,7 @@
 
 - **React** `^19.2.6` — UI ライブラリ
 - **React DOM** `^19.2.6` — DOM レンダリング
+- **React Router** `^7.17.0` — クライアントサイドルーティング（`main.tsx` で `BrowserRouter`、`App.tsx` でルート定義）
 
 ## スタイリング
 
@@ -73,8 +75,9 @@ my-portfolio/
 ├── public/          # 静的ファイル (favicon, icons など)
 ├── src/
 │   ├── assets/      # 画像 (hero.png, logo など)
-│   ├── App.tsx      # ルートコンポーネント
-│   ├── main.tsx     # エントリーポイント
+│   ├── pages/       # ページコンポーネント (Home, About など)
+│   ├── App.tsx      # ルート定義 (React Router)
+│   ├── main.tsx     # エントリーポイント (BrowserRouter)
 │   ├── App.css
 │   └── index.css
 ├── index.html
