@@ -1,3 +1,4 @@
+import { fileURLToPath } from 'node:url'
 import react from '@vitejs/plugin-react'
 import { defineConfig } from 'vitest/config'
 
@@ -5,6 +6,12 @@ import { defineConfig } from 'vitest/config'
 // React 変換のみ @vitejs/plugin-react で行う。
 export default defineConfig({
   plugins: [react()],
+  resolve: {
+    alias: {
+      // tsconfig の paths "~/*" -> "app/*" に合わせる
+      '~': fileURLToPath(new URL('./app', import.meta.url)),
+    },
+  },
   test: {
     environment: 'jsdom',
     setupFiles: ['./vitest.setup.ts'],
