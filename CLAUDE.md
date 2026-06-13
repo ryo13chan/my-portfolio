@@ -19,3 +19,11 @@
 | `npm run build` | 型チェック (`tsc -b`) 後にビルド |
 | `npm run lint` | ESLint 実行 |
 | `npm run preview` | ビルド結果のプレビュー |
+
+## Git 運用ルール
+
+- **`main` ブランチに直接コミットしないこと。** 作業の前に必ず新しいブランチを切る。
+- ブランチ名は `feat/...`, `fix/...`, `chore/...`, `docs/...` などの接頭辞をつける。
+- コミットメッセージ末尾には次のトレーラーを付ける:
+  `Co-Authored-By: Claude Opus 4.8 (1M context) <noreply@anthropic.com>`
+- ブランチ作成とコミットは `/commit` skill で行える。
