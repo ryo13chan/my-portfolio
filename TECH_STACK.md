@@ -12,6 +12,7 @@
 | フレームワーク | React 19 |
 | 言語 | TypeScript 6 |
 | ビルドツール | Vite 8 |
+| スタイリング | Tailwind CSS 4 |
 | Linter | ESLint 10 |
 | ランタイム | Node.js v24.16.0 (LTS "Krypton") |
 | パッケージ管理 | pnpm 11 (corepack で固定) |
@@ -22,6 +23,11 @@
 
 - **React** `^19.2.6` — UI ライブラリ
 - **React DOM** `^19.2.6` — DOM レンダリング
+
+## スタイリング
+
+- **Tailwind CSS** `^4.3.0` — ユーティリティファースト CSS
+- **@tailwindcss/vite** `^4.3.0` — Vite プラグイン（`vite.config.ts` で読み込み、`src/index.css` で `@import "tailwindcss"`）
 
 ## 言語・型
 
