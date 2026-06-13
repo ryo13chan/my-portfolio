@@ -14,6 +14,7 @@
 | ビルドツール | Vite 8 |
 | Linter | ESLint 10 |
 | ランタイム | Node.js v24.16.0 (LTS "Krypton") |
+| パッケージ管理 | pnpm 11 (corepack で固定) |
 
 ---
 
@@ -34,6 +35,7 @@
 - **Vite** `^8.0.12` — 開発サーバー / バンドラー
 - **@vitejs/plugin-react** `^6.0.1` — React 向け Vite プラグイン
 - **Node.js** `v24.16.0`（LTS "Krypton" / `.node-version` で固定、fnm で管理）
+- **pnpm** `11.6.0` — パッケージマネージャ（`package.json` の `packageManager` で固定、corepack 経由）
 
 ## Lint / コード品質
 
@@ -46,14 +48,15 @@
 
 ---
 
-## npm スクリプト
+## スクリプト
 
 | コマンド | 内容 |
 | --- | --- |
-| `npm run dev` | 開発サーバー起動 (Vite) |
-| `npm run build` | 型チェック (`tsc -b`) 後にビルド |
-| `npm run lint` | ESLint 実行 |
-| `npm run preview` | ビルド結果のプレビュー |
+| `pnpm install` | 依存パッケージのインストール |
+| `pnpm run dev` | 開発サーバー起動 (Vite) |
+| `pnpm run build` | 型チェック (`tsc -b`) 後にビルド |
+| `pnpm run lint` | ESLint 実行 |
+| `pnpm run preview` | ビルド結果のプレビュー |
 
 ---
 
