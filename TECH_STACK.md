@@ -15,6 +15,7 @@
 | 言語 | TypeScript 6 |
 | ビルドツール | Vite 8 |
 | スタイリング | Tailwind CSS 4 |
+| テスト | Vitest 4 + Testing Library |
 | Lint / Format | Biome 2 |
 | ランタイム | Node.js v24.16.0 (LTS "Krypton") |
 | パッケージ管理 | pnpm 11 (corepack で固定) |
@@ -48,6 +49,12 @@
 - **Node.js** `v24.16.0`（LTS "Krypton" / `.node-version` で固定、fnm で管理）
 - **pnpm** `11.6.0` — パッケージマネージャ（`package.json` の `packageManager` で固定、corepack 経由）
 
+## テスト
+
+- **Vitest** `^4.1.8` — テストランナー（設定は `vitest.config.ts`。テスト専用に `@vitejs/plugin-react` + `jsdom` を使用）
+- **@testing-library/react** `^16.3.2` / **@testing-library/jest-dom** `^6.9.1` / **@testing-library/user-event** `^14.6.1` — コンポーネントテスト
+- テストは `app/**/*.{test,spec}.{ts,tsx}` に配置
+
 ## Lint / Format
 
 - **Biome** `^2.4.16` — Lint と Format を一手に担うツール（設定は `biome.json`）。`.gitignore` を尊重して `build` / `.react-router` を除外
@@ -65,6 +72,8 @@
 | `pnpm run lint` | Biome で Lint |
 | `pnpm run format` | Biome で整形（書き込み） |
 | `pnpm run check` | Biome で Lint + 整形 + import 整理（書き込み） |
+| `pnpm run test` | Vitest でテスト実行（1回） |
+| `pnpm run test:watch` | Vitest をウォッチモードで実行 |
 
 ---
 
