@@ -15,7 +15,7 @@
 | 言語 | TypeScript 6 |
 | ビルドツール | Vite 8 |
 | スタイリング | Tailwind CSS 4 |
-| Linter | ESLint 10 |
+| Lint / Format | Biome 2 |
 | ランタイム | Node.js v24.16.0 (LTS "Krypton") |
 | パッケージ管理 | pnpm 11 (corepack で固定) |
 
@@ -48,14 +48,9 @@
 - **Node.js** `v24.16.0`（LTS "Krypton" / `.node-version` で固定、fnm で管理）
 - **pnpm** `11.6.0` — パッケージマネージャ（`package.json` の `packageManager` で固定、corepack 経由）
 
-## Lint / コード品質
+## Lint / Format
 
-- **ESLint** `^10.3.0`
-- **@eslint/js** `^10.0.1`
-- **typescript-eslint** `^8.59.2`
-- **eslint-plugin-react-hooks** `^7.1.1`
-- **eslint-plugin-react-refresh** `^0.5.2`
-- **globals** `^17.6.0`
+- **Biome** `^2.4.16` — Lint と Format を一手に担うツール（設定は `biome.json`）。`.gitignore` を尊重して `build` / `.react-router` を除外
 
 ---
 
@@ -67,7 +62,9 @@
 | `pnpm run dev` | 開発サーバー起動 (React Router + Vite) |
 | `pnpm run build` | 本番ビルド（全ルートを prerender して `build/client` に出力） |
 | `pnpm run typecheck` | 型生成 (`react-router typegen`) 後に `tsc` で型チェック |
-| `pnpm run lint` | ESLint 実行 |
+| `pnpm run lint` | Biome で Lint |
+| `pnpm run format` | Biome で整形（書き込み） |
+| `pnpm run check` | Biome で Lint + 整形 + import 整理（書き込み） |
 
 ---
 
@@ -84,7 +81,7 @@ my-portfolio/
 ├── react-router.config.ts  # framework mode 設定 (SSG)
 ├── vite.config.ts
 ├── tsconfig.json
-├── eslint.config.js
+├── biome.json
 └── package.json
 ```
 
