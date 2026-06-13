@@ -84,8 +84,12 @@ my-portfolio/
 ├── public/                 # 静的ファイル (favicon など)
 ├── app/
 │   ├── routes/             # ルートの配線（loader/meta + page を呼ぶ薄いラッパー）
-│   │   ├── home.tsx
-│   │   └── about.tsx
+│   │   ├── home/           #   ルートごとにディレクトリ
+│   │   │   ├── home.tsx
+│   │   │   └── home.test.ts
+│   │   └── about/
+│   │       ├── about.tsx
+│   │       └── about.test.ts
 │   ├── features/           # 機能ごとにまとめる（フィーチャーベース）
 │   │   ├── home/
 │   │   │   ├── pages/      #   ページの中身 + テスト (HomePage.tsx / .test.tsx)
@@ -115,3 +119,5 @@ my-portfolio/
 > パスエイリアス `~/*` → `app/*`（例: `~/features/home/pages/HomePage`）。
 >
 > **役割分担**: `routes/` はルートの配線（`loader`/`meta` はここ）、`features/<name>/pages/` はページの中身（純粋な UI）でテストを colocate。`features/<name>/components/` は今後その機能固有の部品を置く。
+>
+> **ディレクトリ規約**: `routes/` も `components/` もルート/コンポーネントごとにディレクトリを分ける。`components/` は `~/` で import するためバレル `index.ts` を置く。`routes/` は `routes.ts` がファイルパスを直接指定して読み込む（ディレクトリ指定は不可）ため**バレルは不要**で、モジュール名は `home/home.tsx` のように書く。
