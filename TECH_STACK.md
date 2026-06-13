@@ -16,6 +16,7 @@
 | ビルドツール | Vite 8 |
 | スタイリング | Tailwind CSS 4 |
 | テスト | Vitest 4 + Testing Library |
+| コンポーネントカタログ | Storybook 10 |
 | Lint / Format | Biome 2 |
 | ランタイム | Node.js v24.16.0 (LTS "Krypton") |
 | パッケージ管理 | pnpm 11 (corepack で固定) |
@@ -55,6 +56,13 @@
 - **@testing-library/react** `^16.3.2` / **@testing-library/jest-dom** `^6.9.1` / **@testing-library/user-event** `^14.6.1` — コンポーネントテスト
 - テストは `app/**/*.{test,spec}.{ts,tsx}` に配置
 
+## コンポーネントカタログ
+
+- **Storybook** `^10.4.4`（`@storybook/react-vite`）— コンポーネントを画面上で確認するカタログ。設定は `.storybook/`
+- **@storybook/addon-a11y** / **@storybook/addon-docs** — アクセシビリティ検査・ドキュメント
+- story はコンポーネントに colocate（例: `app/components/Button/Button.stories.tsx`）
+- `.storybook/main.ts` で RR の Vite プラグインを除外（Storybook と競合するため）、`preview.tsx` で `app/app.css`（Tailwind）を読み込み
+
 ## Lint / Format
 
 - **Biome** `^2.4.16` — Lint と Format を一手に担うツール（設定は `biome.json`）。`.gitignore` を尊重して `build` / `.react-router` を除外
@@ -74,6 +82,8 @@
 | `pnpm run check` | Biome で Lint + 整形 + import 整理（書き込み） |
 | `pnpm run test` | Vitest でテスト実行（1回） |
 | `pnpm run test:watch` | Vitest をウォッチモードで実行 |
+| `pnpm run storybook` | Storybook 起動（http://localhost:6006） |
+| `pnpm run build-storybook` | Storybook を静的ビルド（`storybook-static`） |
 
 ---
 
@@ -101,12 +111,14 @@ my-portfolio/
 │   │   ├── Button/         #   コンポーネントごとにディレクトリ
 │   │   │   ├── Button.tsx
 │   │   │   ├── Button.test.tsx
+│   │   │   ├── Button.stories.tsx  # Storybook の story（colocate）
 │   │   │   └── index.ts    #   バレル（~/components/Button で import 可）
 │   │   └── ui/             #   (将来) shadcn 用に予約
 │   ├── config/             # サイト共通設定 (site.ts: SITE_NAME など)
 │   ├── routes.ts           # ルート定義
 │   ├── root.tsx            # 共通レイアウト (html/head/body)
 │   └── app.css             # Tailwind の読み込み
+├── .storybook/             # Storybook 設定 (main.ts / preview.tsx)
 ├── react-router.config.ts  # framework mode 設定 (SSG)
 ├── vite.config.ts
 ├── tsconfig.json
