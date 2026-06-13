@@ -1,0 +1,21 @@
+# CLAUDE.md
+
+このファイルは Claude Code がこのプロジェクトで作業する際のガイドです。
+
+## プロジェクト概要
+
+`my-portfolio` — Vite + React 19 + TypeScript 6 で構築したポートフォリオサイト。
+
+## 技術構成の管理
+
+- 技術構成（依存パッケージ・バージョン・ツール）は [TECH_STACK.md](TECH_STACK.md) にまとめている。ポートフォリオ上で使用技術を確認できるようにするのが目的。
+- **依存パッケージの追加/削除/更新、ビルドツールや Node バージョンの変更など、技術構成に変更があったら必ず [TECH_STACK.md](TECH_STACK.md) を更新すること。**（変更履歴は残さない）
+
+## 開発コマンド
+
+| コマンド | 内容 |
+| --- | --- |
+| `npm run dev` | 開発サーバー起動 (Vite) |
+| `npm run build` | 型チェック (`tsc -b`) 後にビルド |
+| `npm run lint` | ESLint 実行 |
+| `npm run preview` | ビルド結果のプレビュー |
