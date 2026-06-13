@@ -93,7 +93,11 @@ my-portfolio/
 │   │   └── about/
 │   │       ├── pages/
 │   │       └── components/
-│   ├── components/          # アプリ全体で使う汎用コンポーネント (Button など)
+│   ├── components/          # アプリ全体で使う汎用コンポーネント
+│   │   ├── Button/         #   コンポーネントごとにディレクトリ
+│   │   │   ├── Button.tsx
+│   │   │   ├── Button.test.tsx
+│   │   │   └── index.ts    #   バレル（~/components/Button で import 可）
 │   │   └── ui/             #   (将来) shadcn 用に予約
 │   ├── config/             # サイト共通設定 (site.ts: SITE_NAME など)
 │   ├── routes.ts           # ルート定義
