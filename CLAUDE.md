@@ -23,7 +23,7 @@
 ## Git 運用ルール
 
 - **`main` ブランチに直接コミットしないこと。** 作業の前に必ず新しいブランチを切る。
-- ブランチ名は `feat/...`, `fix/...`, `chore/...`, `docs/...` などの接頭辞をつける。
+- ブランチ名は `feat/...`, `fix/...`, `chore/...`, `docs/...` などの接頭辞をつけ、末尾に `_MMDD`（作成日の月日）を付ける。例: `feat/hero-section_0613`
 - コミットメッセージ末尾には次のトレーラーを付ける:
   `Co-Authored-By: Claude Opus 4.8 (1M context) <noreply@anthropic.com>`
 - ブランチ作成とコミットは `/commit` skill で行える。
