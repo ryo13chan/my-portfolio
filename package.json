@@ -12,7 +12,9 @@
     "format": "biome format --write .",
     "check": "biome check --write .",
     "test": "vitest run",
-    "test:watch": "vitest"
+    "test:watch": "vitest",
+    "storybook": "storybook dev -p 6006",
+    "build-storybook": "storybook build"
   },
   "dependencies": {
     "@react-router/node": "^7.17.0",
@@ -25,6 +27,9 @@
   "devDependencies": {
     "@biomejs/biome": "^2.4.16",
     "@react-router/dev": "^7.17.0",
+    "@storybook/addon-a11y": "^10.4.4",
+    "@storybook/addon-docs": "^10.4.4",
+    "@storybook/react-vite": "^10.4.4",
     "@tailwindcss/vite": "^4.3.0",
     "@testing-library/jest-dom": "^6.9.1",
     "@testing-library/react": "^16.3.2",
@@ -34,6 +39,7 @@
     "@types/react-dom": "^19.2.3",
     "@vitejs/plugin-react": "^6.0.2",
     "jsdom": "^29.1.1",
+    "storybook": "^10.4.4",
     "tailwindcss": "^4.3.0",
     "typescript": "~6.0.2",
     "vite": "^8.0.12",
