@@ -119,6 +119,7 @@ my-portfolio/
 │   ├── root.tsx            # 共通レイアウト (html/head/body)
 │   └── app.css             # Tailwind の読み込み
 ├── .storybook/             # Storybook 設定 (main.ts / preview.tsx)
+├── docs/                   # プロジェクトドキュメント (TECH_STACK.md)
 ├── react-router.config.ts  # framework mode 設定 (SSG)
 ├── vite.config.ts
 ├── tsconfig.json
