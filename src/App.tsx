@@ -1,8 +1,14 @@
+import { Routes, Route } from 'react-router'
 import './App.css'
+import Home from './pages/Home'
+import About from './pages/About'
 
 function App() {
   return (
-    <h1 className="text-3xl font-bold text-slate-800">Home</h1>
+    <Routes>
+      <Route path="/" element={<Home />} />
+      <Route path="/about" element={<About />} />
+    </Routes>
   )
 }
 
