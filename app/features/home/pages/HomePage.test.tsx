@@ -1,13 +1,13 @@
 import { render, screen } from '@testing-library/react'
 import { MemoryRouter } from 'react-router'
 import { describe, expect, it } from 'vitest'
-import Home from './home'
+import HomePage from './HomePage'
 
-describe('Home', () => {
+describe('HomePage', () => {
   it('見出しと About へのリンクを表示する', () => {
     render(
       <MemoryRouter>
-        <Home />
+        <HomePage />
       </MemoryRouter>,
     )
 
