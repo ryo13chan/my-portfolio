@@ -6,10 +6,10 @@ describe('about route meta', () => {
   it('title と description を返す', () => {
     const result = meta({} as Route.MetaArgs)
 
-    expect(result).toContainEqual({ title: 'About | my-portfolio' })
+    expect(result).toContainEqual({ title: "About | Ryo's Portfolio" })
     expect(result).toContainEqual({
       name: 'description',
-      content: 'my-portfolio の自己紹介ページ',
+      content: "Ryo's Portfolio の自己紹介ページ",
     })
   })
 })

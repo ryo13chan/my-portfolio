@@ -1,10 +1,11 @@
+import { pageTitle, SITE_NAME } from '~/config/site'
 import HomePage from '~/features/home/pages/HomePage'
 import type { Route } from './+types/home'
 
 export function meta(_: Route.MetaArgs) {
   return [
-    { title: 'Home | my-portfolio' },
-    { name: 'description', content: 'my-portfolio のトップページ' },
+    { title: pageTitle('Home') },
+    { name: 'description', content: `${SITE_NAME} のトップページ` },
   ]
 }
 
