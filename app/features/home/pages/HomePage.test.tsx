@@ -16,5 +16,6 @@ describe('HomePage', () => {
       'href',
       '/about',
     )
+    expect(screen.getByRole('button', { name: 'ボタン' })).toBeInTheDocument()
   })
 })
