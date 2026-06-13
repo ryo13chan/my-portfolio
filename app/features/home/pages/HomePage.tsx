@@ -1,4 +1,5 @@
 import { Link } from 'react-router'
+import Button from '~/components/Button'
 
 export default function HomePage() {
   return (
@@ -7,6 +8,9 @@ export default function HomePage() {
       <Link to="/about" className="mt-4 inline-block text-blue-600 underline">
         About へ
       </Link>
+      <div className="mt-4">
+        <Button />
+      </div>
     </div>
   )
 }
