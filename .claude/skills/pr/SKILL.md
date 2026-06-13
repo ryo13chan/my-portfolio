@@ -1,6 +1,6 @@
 ---
 name: pr
-description: 現在のブランチを push して GitHub に Pull Request を作成する（gh CLI 使用）。ユーザーが「PRを作って」「プルリク出して」などと頼んだとき、または作業開始時に draft PR を先に作りたいときに使う。
+description: 現在のブランチを push して GitHub に Pull Request を作成する（gh CLI 使用）。ユーザーが「PRを作って」「プルリク出して」などと頼んだとき、または変更を PR にまとめたいときに使う。
 ---
 
 # pr
@@ -12,21 +12,9 @@ description: 現在のブランチを push して GitHub に Pull Request を作
 - `gh auth status` で認証済みであること（未認証ならユーザーに `gh auth login` を案内する）。
 - `main` 以外のブランチにいること（`main` なら先に `/commit` skill 等でブランチを切る）。
 
-## 作業開始時に PR を先に作る（PR-first / draft）
+## 基本：完成した変更を ready PR で作る（デフォルト）
 
-新しい作業を始めるときは、最初に draft PR を作っておくと変更を早期に可視化できる。
-
-1. `/commit` skill のルールに従ってブランチを切る（`main` 直コミット禁止 / 末尾 `_MMDD`）。
-2. 最初のコミットを作る（まだ実装が無ければ、関連する小さな変更や雛形でよい）。
-3. push して draft PR を作成する:
-   ```
-   git push -u origin <branch>
-   gh pr create --draft --base main --title "<作業内容>" --body "<概要>"
-   ```
-4. 以降はそのブランチにコミットを重ねていく（push すれば PR に自動反映）。
-5. 完成したら draft を解除: `gh pr ready`
-
-## 完成済みの変更で PR を作る
+一度の作業で仕上げた変更は、draft を挟まず通常（ready）の PR を作る。
 
 1. コミットが済んでいることを確認する（未コミットなら `/commit` skill を使う）。
 2. push して PR を作成する:
@@ -34,6 +22,18 @@ description: 現在のブランチを push して GitHub に Pull Request を作
    git push -u origin <branch>
    gh pr create --base main --title "<タイトル>" --body "<本文>"
    ```
+
+## 例外：長めの作業は draft で先に作る
+
+複数回に分けて進める長めの作業のときだけ、最初に draft PR を立てて途中経過を可視化する。
+
+1. `/commit` skill のルールに従ってブランチを切り、最初のコミットを作る。
+2. push して draft PR を作成する:
+   ```
+   git push -u origin <branch>
+   gh pr create --draft --base main --title "<作業内容>" --body "<概要>"
+   ```
+3. コミットを重ねていき（push すれば PR に反映）、完成したら draft を解除: `gh pr ready`
 
 ## PR 本文の体裁
 
