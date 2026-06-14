@@ -16,12 +16,7 @@ export default function Header() {
       </Link>
       <nav className="flex items-center gap-1">
         {navItems.map((item) => (
-          <Button
-            key={item.to}
-            variant="ghost"
-            asChild
-            className="aria-[current=page]:font-bold"
-          >
+          <Button key={item.to} variant="ghost" asChild>
             <NavLink to={item.to}>{item.label}</NavLink>
           </Button>
         ))}
