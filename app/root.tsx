@@ -1,5 +1,4 @@
 import { Links, Meta, Outlet, Scripts, ScrollRestoration } from 'react-router'
-import Header from '~/components/Header'
 import './app.css'
 
 export function Layout({ children }: { children: React.ReactNode }) {
@@ -22,10 +21,5 @@ export function Layout({ children }: { children: React.ReactNode }) {
 }
 
 export default function Root() {
-  return (
-    <>
-      <Header />
-      <Outlet />
-    </>
-  )
+  return <Outlet />
 }
