@@ -9,8 +9,7 @@
 技術構成・開発コマンドの詳細は [TECH_STACK.md](docs/TECH_STACK.md) を参照。
 
 - 技術構成（依存パッケージ・バージョン・ツール・Node バージョン）に変更があったら、必ず [TECH_STACK.md](docs/TECH_STACK.md) を更新すること。
-- コードはフィーチャーベース構成：ページの中身とテストは `app/features/<name>/pages/`、機能固有の部品は `app/features/<name>/components/`、アプリ共通のコンポーネントは `app/components/`（汎用プリミティブは直下〈`Button/` など〉、全ページ横断のレイアウトのガワは `layout/`〈`Header/` など〉、shadcn は `ui/`。コンポーネントごとにディレクトリを分け、`Button.tsx` + `Button.test.tsx` + Storybook の `Button.stories.tsx` + バレル `index.ts` の形）、`app/routes/` はルートの配線（ルートごとにディレクトリを分け、`home/home.tsx` + `home.test.ts` の形。`routes.ts` がパス直指定で読むためバレルは不要。薄いラッパー、`loader`/`meta` はここ）。全ページ共通レイアウトは layout ルート `app/routes/layout.tsx`（`root.tsx` は HTML ドキュメントの殻、layout はヘッダー等のガワ）。詳細は [TECH_STACK.md](docs/TECH_STACK.md)。
-- UI プリミティブは shadcn/ui（`app/components/ui/`）。**`ui/` は vendored 扱いで中身を編集しない**（Biome 対象外。更新は `npx shadcn@latest add <comp> --overwrite`）。カスタムは `app/components/<Name>/` の自作ラッパーから `ui/` を使い、`className`/CSS変数/バリアントで行う。
+- コード構成・コンポーネント作成ルール（フィーチャーベース構成、ディレクトリの使い分け、shadcn の vendored 方針、コメント規約など）は [docs/COMPONENTS.md](docs/COMPONENTS.md) を参照。
 
 ## Git 運用ルール
 
