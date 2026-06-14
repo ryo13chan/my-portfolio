@@ -102,30 +102,32 @@ my-portfolio/
 ├── public/                 # 静的ファイル (favicon など)
 ├── app/
 │   ├── routes/             # ルートの配線（loader/meta + page を呼ぶ薄いラッパー）
-│   │   ├── home/           #   ルートごとにディレクトリ
-│   │   │   ├── home.tsx
-│   │   │   └── home.test.ts
-│   │   └── about/
-│   │       ├── about.tsx
-│   │       └── about.test.ts
+│   │   ├── layout.tsx      #   全ページ共通レイアウト（layout ルート: Header + Outlet）
+│   │   ├── home/           #   ルートごとにディレクトリ（home.tsx + home.test.ts）
+│   │   ├── about/
+│   │   ├── tools/
+│   │   └── blog/
 │   ├── features/           # 機能ごとにまとめる（フィーチャーベース）
 │   │   ├── home/
 │   │   │   ├── pages/      #   ページの中身 + テスト (HomePage.tsx / .test.tsx)
 │   │   │   └── components/ #   (今後) その機能固有のコンポーネント
-│   │   └── about/
-│   │       ├── pages/
-│   │       └── components/
-│   ├── components/          # アプリ全体で使う汎用コンポーネント
-│   │   ├── Button/         #   コンポーネントごとにディレクトリ
+│   │   ├── about/
+│   │   ├── tools/          #   (仮ページ) 便利ツール集
+│   │   └── blog/           #   (仮ページ) ブログ
+│   ├── components/          # アプリ共通のコンポーネント
+│   │   ├── Button/         #   汎用プリミティブ（コンポーネントごとにディレクトリ）
 │   │   │   ├── Button.tsx
 │   │   │   ├── Button.test.tsx
 │   │   │   ├── Button.stories.tsx  # Storybook の story（colocate）
 │   │   │   └── index.ts    #   バレル（~/components/Button で import 可）
+│   │   ├── Avatar/         #   ui/avatar のラッパー（src/alt/fallback/className props）
+│   │   ├── layout/         #   全ページ横断のレイアウトのガワ
+│   │   │   └── Header/     #     サイト共通ヘッダー（layout ルートで表示）
 │   │   └── ui/             #   shadcn/ui（vendored・編集しない・Biome 対象外）
 │   ├── config/             # サイト共通設定 (site.ts: SITE_NAME など)
 │   ├── lib/                # 汎用ユーティリティ (utils.ts: cn など)
 │   ├── routes.ts           # ルート定義
-│   ├── root.tsx            # 共通レイアウト (html/head/body)
+│   ├── root.tsx            # HTML ドキュメントの殻 (html/head/body)
 │   └── app.css             # Tailwind + shadcn テーマ (CSS 変数)
 ├── .storybook/             # Storybook 設定 (main.ts / preview.tsx)
 ├── docs/                   # プロジェクトドキュメント (TECH_STACK.md)
