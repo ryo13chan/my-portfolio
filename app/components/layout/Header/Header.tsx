@@ -1,6 +1,6 @@
 import { Link, NavLink } from 'react-router'
 import Avatar from '~/components/Avatar'
-import { Button } from '~/components/ui/button'
+import Button from '~/components/Button'
 
 const navItems = [
   { label: 'About', to: '/about' },

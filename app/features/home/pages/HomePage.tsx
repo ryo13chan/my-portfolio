@@ -9,7 +9,7 @@ export default function HomePage() {
         About へ
       </Link>
       <div className="mt-4">
-        <Button />
+        <Button>ボタン</Button>
       </div>
 
       {/* TODO: sticky ヘッダーのスクロール確認用の仮コンテンツ。本実装時に削除する */}

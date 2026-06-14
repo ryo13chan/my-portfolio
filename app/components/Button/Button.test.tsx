@@ -4,7 +4,7 @@ import Button from './Button'
 
 describe('Button', () => {
   it('ボタンを表示する', () => {
-    render(<Button />)
+    render(<Button>ボタン</Button>)
 
     expect(screen.getByRole('button', { name: 'ボタン' })).toBeInTheDocument()
   })
