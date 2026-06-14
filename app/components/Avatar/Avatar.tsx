@@ -1,15 +1,17 @@
 import { Avatar, AvatarFallback, AvatarImage } from '~/components/ui/avatar'
 
 type AppAvatarProps = {
+  /** 画像の URL */
   src: string
+  /** 画像の代替テキスト */
   alt: string
+  /** 画像を読み込めないときに表示する文字 */
   fallback: string
+  /** サイズなどの上書き用クラス */
   className?: string
 }
 
-// shadcn の Avatar を使った汎用アバター（複数箇所で別々の値を表示できる）。
-// 値は使う側が渡す。className はサイズ等の上書き用。
-// 利用側は default import で `Avatar` として使える（barrel 経由）。
+/** shadcn の Avatar ベースの汎用アバター。 */
 export default function AppAvatar({
   src,
   alt,
