@@ -1,5 +1,5 @@
 import { Link } from 'react-router'
-import { Avatar, AvatarFallback, AvatarImage } from '~/components/ui/avatar'
+import Avatar from '~/components/Avatar'
 import { Button } from '~/components/ui/button'
 
 const navItems = [
@@ -12,10 +12,7 @@ export default function Header() {
   return (
     <header className="sticky top-0 z-50 flex items-center justify-between border-b bg-background px-6 py-4">
       <Link to="/" aria-label="Home">
-        <Avatar className="size-12">
-          <AvatarImage src="/avatar.jpg" alt="Ryo" />
-          <AvatarFallback>R</AvatarFallback>
-        </Avatar>
+        <Avatar src="/avatar.jpg" alt="Ryo" fallback="R" className="size-12" />
       </Link>
       <nav className="flex items-center gap-1">
         {navItems.map((item) => (

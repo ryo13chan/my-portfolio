@@ -120,6 +120,7 @@ my-portfolio/
 │   │   │   ├── Button.test.tsx
 │   │   │   ├── Button.stories.tsx  # Storybook の story（colocate）
 │   │   │   └── index.ts    #   バレル（~/components/Button で import 可）
+│   │   ├── Avatar/         #   ui/avatar のラッパー（src/alt/fallback/className props）
 │   │   ├── layout/         #   全ページ横断のレイアウトのガワ
 │   │   │   └── Header/     #     サイト共通ヘッダー（layout ルートで表示）
 │   │   └── ui/             #   shadcn/ui（vendored・編集しない・Biome 対象外）
