@@ -102,25 +102,24 @@ my-portfolio/
 ├── public/                 # 静的ファイル (favicon など)
 ├── app/
 │   ├── routes/             # ルートの配線（loader/meta + page を呼ぶ薄いラッパー）
-│   │   ├── home/           #   ルートごとにディレクトリ
-│   │   │   ├── home.tsx
-│   │   │   └── home.test.ts
-│   │   └── about/
-│   │       ├── about.tsx
-│   │       └── about.test.ts
+│   │   ├── home/           #   ルートごとにディレクトリ（home.tsx + home.test.ts）
+│   │   ├── about/
+│   │   ├── tools/
+│   │   └── blog/
 │   ├── features/           # 機能ごとにまとめる（フィーチャーベース）
 │   │   ├── home/
 │   │   │   ├── pages/      #   ページの中身 + テスト (HomePage.tsx / .test.tsx)
 │   │   │   └── components/ #   (今後) その機能固有のコンポーネント
-│   │   └── about/
-│   │       ├── pages/
-│   │       └── components/
+│   │   ├── about/
+│   │   ├── tools/          #   (仮ページ) 便利ツール集
+│   │   └── blog/           #   (仮ページ) ブログ
 │   ├── components/          # アプリ全体で使う汎用コンポーネント
 │   │   ├── Button/         #   コンポーネントごとにディレクトリ
 │   │   │   ├── Button.tsx
 │   │   │   ├── Button.test.tsx
 │   │   │   ├── Button.stories.tsx  # Storybook の story（colocate）
 │   │   │   └── index.ts    #   バレル（~/components/Button で import 可）
+│   │   ├── Header/         #   サイト共通ヘッダー（root.tsx で全ページに表示）
 │   │   └── ui/             #   shadcn/ui（vendored・編集しない・Biome 対象外）
 │   ├── config/             # サイト共通設定 (site.ts: SITE_NAME など)
 │   ├── lib/                # 汎用ユーティリティ (utils.ts: cn など)
