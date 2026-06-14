@@ -15,6 +15,7 @@
 | 言語 | TypeScript 6 |
 | ビルドツール | Vite 8 |
 | スタイリング | Tailwind CSS 4 |
+| UI コンポーネント | shadcn/ui（radix ベース） |
 | テスト | Vitest 4 + Testing Library |
 | コンポーネントカタログ | Storybook 10 |
 | Lint / Format | Biome 2 |
@@ -36,6 +37,13 @@
 
 - **Tailwind CSS** `^4.3.0` — ユーティリティファースト CSS
 - **@tailwindcss/vite** `^4.3.0` — Vite プラグイン（`vite.config.ts` で読み込み、`app/app.css` で `@import "tailwindcss"`）
+
+## UI コンポーネント（shadcn/ui）
+
+- **shadcn/ui**（radix ベース）— `components.json` で設定、コンポーネントは `app/components/ui/` に取り込む
+- 関連: `class-variance-authority` / `clsx` / `tailwind-merge`（`cn` ユーティリティは `app/lib/utils.ts`）/ `radix-ui` / `lucide-react`
+- **方針（vendored）**: `app/components/ui/` の中身は**編集しない**（Biome 対象外。`includes` で除外）。更新は `npx shadcn@latest add <comp> --overwrite`。カスタムは自作ラッパー（`app/components/<Name>/`）から `className` / CSS 変数 / バリアントで行う
+- テーマ（CSS 変数）と Tailwind ディレクティブは `app/app.css`。Biome は `css.parser.tailwindDirectives` を有効化して対応
 
 ## 言語・型
 
@@ -113,13 +121,15 @@ my-portfolio/
 │   │   │   ├── Button.test.tsx
 │   │   │   ├── Button.stories.tsx  # Storybook の story（colocate）
 │   │   │   └── index.ts    #   バレル（~/components/Button で import 可）
-│   │   └── ui/             #   (将来) shadcn 用に予約
+│   │   └── ui/             #   shadcn/ui（vendored・編集しない・Biome 対象外）
 │   ├── config/             # サイト共通設定 (site.ts: SITE_NAME など)
+│   ├── lib/                # 汎用ユーティリティ (utils.ts: cn など)
 │   ├── routes.ts           # ルート定義
 │   ├── root.tsx            # 共通レイアウト (html/head/body)
-│   └── app.css             # Tailwind の読み込み
+│   └── app.css             # Tailwind + shadcn テーマ (CSS 変数)
 ├── .storybook/             # Storybook 設定 (main.ts / preview.tsx)
 ├── docs/                   # プロジェクトドキュメント (TECH_STACK.md)
+├── components.json         # shadcn/ui 設定
 ├── react-router.config.ts  # framework mode 設定 (SSG)
 ├── vite.config.ts
 ├── tsconfig.json
