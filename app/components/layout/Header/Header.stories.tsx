@@ -3,7 +3,7 @@ import { MemoryRouter } from 'react-router'
 import Header from './Header'
 
 const meta = {
-  title: 'Components/Header',
+  title: 'Components/Layout/Header',
   component: Header,
   decorators: [
     // Header は <Link> を使うのでルーターコンテキストを与える

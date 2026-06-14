@@ -17,6 +17,7 @@
 
 - コンポーネントごとにディレクトリを分ける：`Button/Button.tsx` + `Button.test.tsx` + Storybook の `Button.stories.tsx` + バレル `index.ts`
 - 利用側は default import（barrel 経由で `~/components/Button`）
+- Storybook の story `title` はディレクトリ構造に合わせる（`app/components/` 配下のパスを反映）：`app/components/Button` → `Components/Button`、`app/components/layout/Header` → `Components/Layout/Header`
 
 ## ルートのファイル構成
 

@@ -8,6 +8,7 @@ const navItems = [
   { label: 'Blog', to: '/blog' },
 ]
 
+/** 全ページ共通のヘッダー（左にアバター→Home、右に各ページへのナビ）。 */
 export default function Header() {
   return (
     <header className="sticky top-0 z-50 flex items-center justify-between border-b bg-background px-6 py-4">
