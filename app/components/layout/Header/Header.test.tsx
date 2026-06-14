@@ -4,7 +4,7 @@ import { describe, expect, it } from 'vitest'
 import Header from './Header'
 
 describe('Header', () => {
-  it('Home へのアバターリンクと about / tools / blog のナビを表示する', () => {
+  it('Home へのアバターリンクと About / Tools / Blog のナビを表示する', () => {
     render(
       <MemoryRouter>
         <Header />
@@ -15,15 +15,15 @@ describe('Header', () => {
       'href',
       '/',
     )
-    expect(screen.getByRole('link', { name: 'about' })).toHaveAttribute(
+    expect(screen.getByRole('link', { name: 'About' })).toHaveAttribute(
       'href',
       '/about',
     )
-    expect(screen.getByRole('link', { name: 'tools' })).toHaveAttribute(
+    expect(screen.getByRole('link', { name: 'Tools' })).toHaveAttribute(
       'href',
       '/tools',
     )
-    expect(screen.getByRole('link', { name: 'blog' })).toHaveAttribute(
+    expect(screen.getByRole('link', { name: 'Blog' })).toHaveAttribute(
       'href',
       '/blog',
     )

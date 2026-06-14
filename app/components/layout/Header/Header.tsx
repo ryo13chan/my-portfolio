@@ -3,9 +3,9 @@ import { Avatar, AvatarFallback, AvatarImage } from '~/components/ui/avatar'
 import { Button } from '~/components/ui/button'
 
 const navItems = [
-  { label: 'about', to: '/about' },
-  { label: 'tools', to: '/tools' },
-  { label: 'blog', to: '/blog' },
+  { label: 'About', to: '/about' },
+  { label: 'Tools', to: '/tools' },
+  { label: 'Blog', to: '/blog' },
 ]
 
 export default function Header() {
