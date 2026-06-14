@@ -10,7 +10,7 @@ const navItems = [
 
 export default function Header() {
   return (
-    <header className="flex items-center justify-between px-6 py-4">
+    <header className="sticky top-0 z-50 flex items-center justify-between border-b bg-background px-6 py-4">
       <Link to="/" aria-label="Home">
         <Avatar>
           <AvatarImage src="" alt="" />
