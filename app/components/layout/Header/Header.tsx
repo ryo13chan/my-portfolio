@@ -1,4 +1,4 @@
-import { Link } from 'react-router'
+import { Link, NavLink } from 'react-router'
 import Avatar from '~/components/Avatar'
 import { Button } from '~/components/ui/button'
 
@@ -16,8 +16,13 @@ export default function Header() {
       </Link>
       <nav className="flex items-center gap-1">
         {navItems.map((item) => (
-          <Button key={item.to} variant="ghost" asChild>
-            <Link to={item.to}>{item.label}</Link>
+          <Button
+            key={item.to}
+            variant="ghost"
+            asChild
+            className="aria-[current=page]:font-bold"
+          >
+            <NavLink to={item.to}>{item.label}</NavLink>
           </Button>
         ))}
       </nav>

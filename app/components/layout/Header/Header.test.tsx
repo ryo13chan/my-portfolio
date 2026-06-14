@@ -28,4 +28,20 @@ describe('Header', () => {
       '/blog',
     )
   })
+
+  it('現在のページのナビに aria-current=page が付く', () => {
+    render(
+      <MemoryRouter initialEntries={['/about']}>
+        <Header />
+      </MemoryRouter>,
+    )
+
+    expect(screen.getByRole('link', { name: 'About' })).toHaveAttribute(
+      'aria-current',
+      'page',
+    )
+    expect(screen.getByRole('link', { name: 'Tools' })).not.toHaveAttribute(
+      'aria-current',
+    )
+  })
 })
