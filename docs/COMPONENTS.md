@@ -29,6 +29,7 @@
 - `app/components/ui/` の中身は**編集しない**（Biome 対象外。更新は `npx shadcn@latest add <comp> --overwrite`）
 - カスタムは `app/components/<Name>/` の自作ラッパーから `ui/` を使い、`className` / CSS 変数 / バリアントで行う
 - **アプリコードは `ui/` を直接 import しない。** `app/components/<Name>/` のラッパー経由で使う（無ければラッパーを作る）。`ui/` を import するのはラッパー内だけ。
+  - 狙い：`ui/` には story を置かない（vendored）ため、**ラッパー＋ story を作ることで、使っているコンポーネントを Storybook にカタログとして載せる**。素通しのラッパーでも、この目的のために作る。
 
 ## コメント / JSDoc
 
