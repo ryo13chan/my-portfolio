@@ -1,4 +1,4 @@
-import { SITE_NAME, pageTitle } from '~/config/site'
+import { pageTitle, SITE_NAME } from '~/config/site'
 import WorksPage from '~/features/works/pages/WorksPage'
 import type { Route } from './+types/works'
 
