@@ -122,7 +122,8 @@ my-portfolio/
 │   │   │   └── index.ts    #   バレル（~/components/Button で import 可）
 │   │   ├── Avatar/         #   ui/avatar のラッパー（src/alt/fallback/className props）
 │   │   ├── layout/         #   全ページ横断のレイアウトのガワ
-│   │   │   └── Header/     #     サイト共通ヘッダー（layout ルートで表示）
+│   │   │   ├── Header/     #     サイト共通ヘッダー（layout ルートで表示）
+│   │   │   └── MobileNav/  #     モバイル用ハンバーガーメニュー（Sheet）
 │   │   └── ui/             #   shadcn/ui（vendored・編集しない・Biome 対象外）
 │   ├── config/             # サイト共通設定 (site.ts: SITE_NAME など)
 │   ├── lib/                # 汎用ユーティリティ (utils.ts: cn など)
