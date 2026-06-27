@@ -2,6 +2,7 @@ import { Link, NavLink } from 'react-router'
 import Avatar from '~/components/base/Avatar'
 import Button from '~/components/base/Button'
 import MobileNav from '~/components/layout/MobileNav'
+import ThemeToggle from '~/components/layout/ThemeToggle'
 
 /** ヘッダーのナビ項目。PC のインラインナビとモバイルの MobileNav の両方で使う。 */
 const navItems = [
@@ -17,17 +18,21 @@ export default function Header() {
       <Link to="/" aria-label="Home">
         <Avatar src="/avatar.jpg" alt="Ryo" fallback="R" className="size-12" />
       </Link>
-      {/* PC: インラインナビ */}
-      <nav className="hidden items-center gap-1 md:flex">
-        {navItems.map((item) => (
-          <Button key={item.to} variant="ghost" asChild>
-            <NavLink to={item.to}>{item.label}</NavLink>
-          </Button>
-        ))}
-      </nav>
-      {/* モバイル: ハンバーガーメニュー */}
-      <div className="md:hidden">
-        <MobileNav items={navItems} />
+      <div className="flex items-center gap-1">
+        {/* PC: インラインナビ */}
+        <nav className="hidden items-center gap-1 md:flex">
+          {navItems.map((item) => (
+            <Button key={item.to} variant="ghost" asChild>
+              <NavLink to={item.to}>{item.label}</NavLink>
+            </Button>
+          ))}
+        </nav>
+        {/* モバイル: ハンバーガーメニュー */}
+        <div className="md:hidden">
+          <MobileNav items={navItems} />
+        </div>
+        {/* 一番右: カラーモード切替 */}
+        <ThemeToggle />
       </div>
     </header>
   )
