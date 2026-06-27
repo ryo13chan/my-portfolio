@@ -7,6 +7,7 @@ import ThemeToggle from '~/components/layout/ThemeToggle'
 /** ヘッダーのナビ項目。PC のインラインナビとモバイルの MobileNav の両方で使う。 */
 const navItems = [
   { label: 'About', to: '/about' },
+  { label: 'Works', to: '/works' },
   { label: 'Tools', to: '/tools' },
   { label: 'Blog', to: '/blog' },
 ]

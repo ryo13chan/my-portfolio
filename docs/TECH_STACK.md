@@ -117,6 +117,7 @@ my-portfolio/
 │   │   │   ├── pages/      #   ページの中身 + テスト (HomePage.tsx / .test.tsx)
 │   │   │   └── components/ #   (今後) その機能固有のコンポーネント
 │   │   ├── about/
+│   │   ├── works/          #   (仮ページ) 作品集
 │   │   ├── tools/          #   (仮ページ) 便利ツール集
 │   │   └── blog/           #   (仮ページ) ブログ
 │   ├── components/          # アプリ共通のコンポーネント
