@@ -9,6 +9,7 @@
 技術構成・開発コマンドの詳細は [TECH_STACK.md](docs/TECH_STACK.md) を参照。
 
 - 技術構成（依存パッケージ・バージョン・ツール・Node バージョン）に変更があったら、必ず [TECH_STACK.md](docs/TECH_STACK.md) を更新すること。
+- セットアップ手順・開発コマンド・必要要件・概要など、[README.md](README.md) に書いてある内容に関わる変更があったら、README も更新すること。
 - コード構成・コンポーネント作成ルール（フィーチャーベース構成、ディレクトリの使い分け、shadcn の vendored 方針、コメント規約など）は [docs/COMPONENTS.md](docs/COMPONENTS.md) を参照。
 
 ## Git 運用ルール
