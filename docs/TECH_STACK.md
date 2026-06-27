@@ -125,7 +125,8 @@ my-portfolio/
 │   │   │   └── Avatar/     #     ui/avatar のラッパー（src/alt/fallback/className）
 │   │   ├── layout/         #   全ページ横断のレイアウトのガワ
 │   │   │   ├── Header/     #     サイト共通ヘッダー（layout ルートで表示）
-│   │   │   └── MobileNav/  #     モバイル用ハンバーガーメニュー（Sheet）
+│   │   │   ├── MobileNav/  #     モバイル用ハンバーガーメニュー（Sheet）
+│   │   │   └── ThemeToggle/ #    カラーモード切替（Light/Dark/System・localStorage 保持）
 │   │   └── ui/             #   shadcn/ui（vendored・編集しない・Biome 対象外）
 │   ├── config/             # サイト共通設定 (site.ts: SITE_NAME など)
 │   ├── lib/                # 汎用ユーティリティ (utils.ts: cn など)
