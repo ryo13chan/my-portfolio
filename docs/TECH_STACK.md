@@ -75,6 +75,11 @@
 
 - **Biome** `^2.4.16` — Lint と Format を一手に担うツール（設定は `biome.json`）。`.gitignore` を尊重して `build` / `.react-router` を除外
 
+## CI / 依存管理
+
+- **GitHub Actions**（`.github/workflows/ci.yml`）— PR/`main` push ごとに `biome ci` / `typecheck` / `test` / `build` を実行
+- **Dependabot**（`.github/dependabot.yml`）— 依存パッケージと GitHub Actions を**週1**で更新。minor/patch はまとめて1 PR、major は個別 PR
+
 ---
 
 ## スクリプト
