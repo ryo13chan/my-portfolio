@@ -7,7 +7,7 @@
 - `app/features/<name>/pages/` — ページの中身とテスト（純粋な UI）
 - `app/features/<name>/components/` — その機能固有のコンポーネント
 - `app/components/` — アプリ共通のコンポーネント
-  - 直下（`Button/` など）— 汎用プリミティブ
+  - `base/`（`Button/` など）— 汎用プリミティブ
   - `layout/`（`Header/` など）— 全ページ横断のレイアウトのガワ
   - `ui/` — shadcn/ui（後述の vendored 方針）
 - `app/routes/` — ルートの配線（薄いラッパー。`loader`/`meta` はここ）
@@ -16,8 +16,8 @@
 ## コンポーネントのファイル構成
 
 - コンポーネントごとにディレクトリを分ける：`Button/Button.tsx` + `Button.test.tsx` + Storybook の `Button.stories.tsx` + バレル `index.ts`
-- 利用側は default import（barrel 経由で `~/components/Button`）
-- Storybook の story `title` はディレクトリ構造に合わせる（`app/components/` 配下のパスを反映）：`app/components/Button` → `Components/Button`、`app/components/layout/Header` → `Components/Layout/Header`
+- 利用側は default import（barrel 経由で `~/components/base/Button`）
+- Storybook の story `title` はディレクトリ構造に合わせる（`app/components/` 配下のパスを反映）：`app/components/base/Button` → `Components/Base/Button`、`app/components/layout/Header` → `Components/Layout/Header`
 
 ## ルートのファイル構成
 
