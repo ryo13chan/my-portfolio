@@ -1,7 +1,9 @@
 import { Link, NavLink } from 'react-router'
 import Avatar from '~/components/Avatar'
 import Button from '~/components/Button'
+import MobileNav from '~/components/layout/MobileNav'
 
+/** ヘッダーのナビ項目。PC のインラインナビとモバイルの MobileNav の両方で使う。 */
 const navItems = [
   { label: 'About', to: '/about' },
   { label: 'Tools', to: '/tools' },
@@ -15,13 +17,18 @@ export default function Header() {
       <Link to="/" aria-label="Home">
         <Avatar src="/avatar.jpg" alt="Ryo" fallback="R" className="size-12" />
       </Link>
-      <nav className="flex items-center gap-1">
+      {/* PC: インラインナビ */}
+      <nav className="hidden items-center gap-1 md:flex">
         {navItems.map((item) => (
           <Button key={item.to} variant="ghost" asChild>
             <NavLink to={item.to}>{item.label}</NavLink>
           </Button>
         ))}
       </nav>
+      {/* モバイル: ハンバーガーメニュー */}
+      <div className="md:hidden">
+        <MobileNav items={navItems} />
+      </div>
     </header>
   )
 }
