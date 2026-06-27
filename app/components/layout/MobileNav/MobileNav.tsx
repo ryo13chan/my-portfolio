@@ -1,6 +1,6 @@
 import { Menu } from 'lucide-react'
 import { NavLink } from 'react-router'
-import Button from '~/components/Button'
+import Button from '~/components/base/Button'
 import {
   Sheet,
   SheetClose,

@@ -1,6 +1,6 @@
 import { Link, NavLink } from 'react-router'
-import Avatar from '~/components/Avatar'
-import Button from '~/components/Button'
+import Avatar from '~/components/base/Avatar'
+import Button from '~/components/base/Button'
 import MobileNav from '~/components/layout/MobileNav'
 
 /** ヘッダーのナビ項目。PC のインラインナビとモバイルの MobileNav の両方で使う。 */
