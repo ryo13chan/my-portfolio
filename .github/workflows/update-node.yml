@@ -1,6 +1,6 @@
 name: Update Node version
 
-# 現行 LTS 系（.node-version の major）の最新パッチに .node-version を更新する PR を定期作成する。
+# 最新の Active LTS（メジャー乗り換えも含む）に .node-version を更新する PR を定期作成する。
 on:
   schedule:
     - cron: "0 0 * * 1" # 毎週月曜 00:00 UTC
@@ -16,16 +16,16 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: 現行 LTS 系の最新パッチを取得
+      - name: 最新の Active LTS を取得
         id: node
         run: |
-          current="$(tr -d 'v\n' < .node-version)"
-          major="${current%%.*}"
+          current="v$(tr -d 'v\n' < .node-version)"
+          # index.json は新しい順。lts != false（LTS）の先頭 = 最新 Active LTS の最新パッチ
           latest="$(curl -fsSL https://nodejs.org/dist/index.json \
-            | jq -r --arg m "v${major}." '[.[] | select(.version | startswith($m))][0].version')"
-          echo "current=v${current}" >> "$GITHUB_OUTPUT"
+            | jq -r '[.[] | select(.lts != false)][0].version')"
+          echo "current=${current}" >> "$GITHUB_OUTPUT"
           echo "latest=${latest}" >> "$GITHUB_OUTPUT"
-          if [ -n "${latest}" ] && [ "${latest}" != "v${current}" ]; then
+          if [ -n "${latest}" ] && [ "${latest}" != "${current}" ]; then
             echo "changed=true" >> "$GITHUB_OUTPUT"
           fi
 
@@ -61,8 +61,9 @@ jobs:
           title: "chore: Node を ${{ steps.node.outputs.latest }} に更新"
           commit-message: "chore: .node-version を ${{ steps.node.outputs.latest }} に更新"
           body: |
-            現行 LTS 系の最新パッチに `.node-version` を更新します。
+            最新の Active LTS に `.node-version` を更新します（メジャー乗り換えを含む）。
 
             - ${{ steps.node.outputs.current }} → ${{ steps.node.outputs.latest }}
 
             このワークフロー内で install / biome / typecheck / test / build を検証済み。
+            メジャー更新の場合は破壊的変更がないか中身も確認してからマージしてください。
