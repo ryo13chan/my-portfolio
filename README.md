@@ -30,3 +30,10 @@ pnpm install
 ## ツール
 
 Lint / Format は **Biome** に一本化（ESLint・Prettier は不使用）。設定は [biome.json](biome.json)。
+
+## エディタ（VSCode）
+
+`.vscode/` に設定を同梱：
+
+- 保存時に Biome で自動フォーマット＋import 整理（`.vscode/settings.json`）
+- 推奨拡張機能（`.vscode/extensions.json`）：Biome / Tailwind CSS IntelliSense / Vitest。VSCode で開くとインストールを促されます。
