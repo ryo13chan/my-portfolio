@@ -3,6 +3,7 @@ import Avatar from '~/components/base/Avatar'
 import Button from '~/components/base/Button'
 import MobileNav from '~/components/layout/MobileNav'
 import ThemeToggle from '~/components/layout/ThemeToggle'
+import { SITE_NAME } from '~/config/site'
 
 /** ヘッダーのナビ項目。PC のインラインナビとモバイルの MobileNav の両方で使う。 */
 const navItems = [
@@ -16,8 +17,10 @@ const navItems = [
 export default function Header() {
   return (
     <header className="sticky top-0 z-50 flex items-center justify-between border-b bg-background px-6 py-4">
-      <Link to="/" aria-label="Home">
-        <Avatar src="/avatar.jpg" alt="Ryo" fallback="R" className="size-12" />
+      <Link to="/" className="flex items-center gap-4">
+        {/* リンク名は隣の SITE_NAME になるため、画像は装飾扱い（alt=""） */}
+        <Avatar src="/avatar.jpg" alt="" fallback="R" className="size-12" />
+        <span className="font-semibold text-xl">{SITE_NAME}</span>
       </Link>
       <div className="flex items-center gap-1">
         {/* PC: インラインナビ */}
