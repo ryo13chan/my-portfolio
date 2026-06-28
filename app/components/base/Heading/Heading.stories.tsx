@@ -10,8 +10,9 @@ export default meta
 
 type Story = StoryObj<typeof meta>
 
-// h1〜h6 を一覧で並べて見比べられる
+// h1〜h6 を一覧で並べて見比べられる（level は必須だが render では使わない）
 export const Default: Story = {
+  args: { level: 1 },
   render: () => (
     <div className="flex flex-col gap-4">
       {([1, 2, 3, 4, 5, 6] as const).map((level) => (

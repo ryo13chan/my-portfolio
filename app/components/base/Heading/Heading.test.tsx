@@ -10,9 +10,9 @@ describe('Heading', () => {
     expect(heading.tagName).toBe('H1')
   })
 
-  it('デフォルトは h2', () => {
-    render(<Heading>見出し</Heading>)
+  it('level=3 は h3 を出力する', () => {
+    render(<Heading level={3}>小見出し</Heading>)
 
-    expect(screen.getByRole('heading', { name: '見出し' }).tagName).toBe('H2')
+    expect(screen.getByRole('heading', { name: '小見出し' }).tagName).toBe('H3')
   })
 })
