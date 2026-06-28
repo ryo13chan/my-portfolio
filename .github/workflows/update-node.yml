@@ -1,0 +1,68 @@
+name: Update Node version
+
+# 現行 LTS 系（.node-version の major）の最新パッチに .node-version を更新する PR を定期作成する。
+on:
+  schedule:
+    - cron: "0 0 * * 1" # 毎週月曜 00:00 UTC
+  workflow_dispatch: # 手動実行も可
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  update-node:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: 現行 LTS 系の最新パッチを取得
+        id: node
+        run: |
+          current="$(tr -d 'v\n' < .node-version)"
+          major="${current%%.*}"
+          latest="$(curl -fsSL https://nodejs.org/dist/index.json \
+            | jq -r --arg m "v${major}." '[.[] | select(.version | startswith($m))][0].version')"
+          echo "current=v${current}" >> "$GITHUB_OUTPUT"
+          echo "latest=${latest}" >> "$GITHUB_OUTPUT"
+          if [ -n "${latest}" ] && [ "${latest}" != "v${current}" ]; then
+            echo "changed=true" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: .node-version を更新
+        if: steps.node.outputs.changed == 'true'
+        run: echo "${{ steps.node.outputs.latest }}" > .node-version
+
+      # 新しい Node で検証してから PR を出す（壊れる更新は PR にしない）
+      - uses: pnpm/action-setup@v6
+        if: steps.node.outputs.changed == 'true'
+      - uses: actions/setup-node@v6
+        if: steps.node.outputs.changed == 'true'
+        with:
+          node-version-file: .node-version
+          cache: pnpm
+      - if: steps.node.outputs.changed == 'true'
+        run: pnpm install --frozen-lockfile
+      - if: steps.node.outputs.changed == 'true'
+        run: pnpm exec biome ci .
+      - if: steps.node.outputs.changed == 'true'
+        run: pnpm run typecheck
+      - if: steps.node.outputs.changed == 'true'
+        run: pnpm run test
+      - if: steps.node.outputs.changed == 'true'
+        run: pnpm run build
+
+      - name: PR 作成
+        if: steps.node.outputs.changed == 'true'
+        uses: peter-evans/create-pull-request@v7
+        with:
+          branch: chore/update-node-version
+          base: main
+          title: "chore: Node を ${{ steps.node.outputs.latest }} に更新"
+          commit-message: "chore: .node-version を ${{ steps.node.outputs.latest }} に更新"
+          body: |
+            現行 LTS 系の最新パッチに `.node-version` を更新します。
+
+            - ${{ steps.node.outputs.current }} → ${{ steps.node.outputs.latest }}
+
+            このワークフロー内で install / biome / typecheck / test / build を検証済み。
