@@ -11,7 +11,12 @@
   - `layout/`（`Header/` など）— 全ページ横断のレイアウトのガワ
   - `ui/` — shadcn/ui（後述の vendored 方針）
 - `app/routes/` — ルートの配線（薄いラッパー。`loader`/`meta` はここ）
-- `app/config/` — サイト共通設定（`site.ts`）/ `app/lib/` — 汎用ユーティリティ（`utils.ts`）
+- `app/config/` — サイト共通設定（`site.ts`: サイト名など / `nav.ts`: ナビ項目）/ `app/lib/` — 汎用ユーティリティ（`utils.ts`）
+
+## ナビゲーション項目
+
+- ヘッダーのメニューは `app/config/nav.ts` の **`NAV_ITEMS` に集約**する（単一の出所）。
+- Header（PC ナビ / モバイルの MobileNav）も MobileNav の **Storybook** も同じ `NAV_ITEMS` を参照するので、**ここに1項目足せば全部に反映される**（Storybook への追加漏れも起きない）。
 
 ## コンポーネントのファイル構成
 
