@@ -4,13 +4,21 @@ import Heading from './Heading'
 const meta = {
   title: 'Components/Base/Heading',
   component: Heading,
-  args: { children: '見出しテキスト', level: 1 },
 } satisfies Meta<typeof Heading>
 
 export default meta
 
 type Story = StoryObj<typeof meta>
 
-export const H1: Story = { args: { level: 1 } }
-export const H2: Story = { args: { level: 2 } }
-export const H3: Story = { args: { level: 3 } }
+// h1〜h6 を一覧で並べて見比べられる
+export const Default: Story = {
+  render: () => (
+    <div className="flex flex-col gap-4">
+      {([1, 2, 3, 4, 5, 6] as const).map((level) => (
+        <Heading key={level} level={level}>
+          Heading {level}
+        </Heading>
+      ))}
+    </div>
+  ),
+}
