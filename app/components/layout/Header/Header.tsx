@@ -3,15 +3,8 @@ import Avatar from '~/components/base/Avatar'
 import Button from '~/components/base/Button'
 import MobileNav from '~/components/layout/MobileNav'
 import ThemeToggle from '~/components/layout/ThemeToggle'
+import { NAV_ITEMS } from '~/config/nav'
 import { SITE_NAME } from '~/config/site'
-
-/** ヘッダーのナビ項目。PC のインラインナビとモバイルの MobileNav の両方で使う。 */
-const navItems = [
-  { label: 'About', to: '/about' },
-  { label: 'Works', to: '/works' },
-  { label: 'Tools', to: '/tools' },
-  { label: 'Blog', to: '/blog' },
-]
 
 /** 全ページ共通のヘッダー（左にアバター→Home、右に各ページへのナビ）。 */
 export default function Header() {
@@ -25,7 +18,7 @@ export default function Header() {
       <div className="flex items-center gap-1">
         {/* PC: インラインナビ */}
         <nav className="hidden items-center gap-1 md:flex">
-          {navItems.map((item) => (
+          {NAV_ITEMS.map((item) => (
             <Button key={item.to} variant="ghost" asChild>
               <NavLink to={item.to}>{item.label}</NavLink>
             </Button>
@@ -33,7 +26,7 @@ export default function Header() {
         </nav>
         {/* モバイル: ハンバーガーメニュー */}
         <div className="md:hidden">
-          <MobileNav items={navItems} />
+          <MobileNav items={NAV_ITEMS} />
         </div>
         {/* 一番右: カラーモード切替 */}
         <ThemeToggle />
