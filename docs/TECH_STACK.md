@@ -124,7 +124,8 @@ my-portfolio/
 │   ├── components/          # アプリ共通のコンポーネント
 │   │   ├── base/           #   汎用プリミティブ（コンポーネントごとにディレクトリ）
 │   │   │   ├── Button/     #     Button.tsx / .test.tsx / .stories.tsx / index.ts
-│   │   │   └── Avatar/     #     ui/avatar のラッパー（src/alt/fallback/className）
+│   │   │   ├── Avatar/     #     ui/avatar のラッパー（src/alt/fallback/className）
+│   │   │   └── Heading/    #     見出し h1〜h6（level prop・text-foreground でダーク対応）
 │   │   ├── layout/         #   全ページ横断のレイアウトのガワ
 │   │   │   ├── Header/     #     サイト共通ヘッダー（layout ルートで表示）
 │   │   │   ├── MobileNav/  #     モバイル用ハンバーガーメニュー（Sheet）
