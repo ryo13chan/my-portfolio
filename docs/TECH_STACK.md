@@ -79,6 +79,7 @@
 
 - **GitHub Actions**（`.github/workflows/ci.yml`）— PR/`main` push ごとに `biome ci` / `typecheck` / `test` / `build` を実行
 - **Dependabot**（`.github/dependabot.yml`）— 依存パッケージと GitHub Actions を**週1**で更新。minor/patch はまとめて1 PR、major は個別 PR
+- **Node 自動更新**（`.github/workflows/update-node.yml`）— **最新の Active LTS**（メジャー乗り換え含む）に `.node-version` を更新する PR を**週1**で作成（Dependabot は `.node-version` 非対応のため自前。ワークフロー内で検証してから PR）
 
 ---
 
