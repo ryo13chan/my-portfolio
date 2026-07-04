@@ -54,7 +54,7 @@ jobs:
 
       - name: PR 作成
         if: steps.node.outputs.changed == 'true'
-        uses: peter-evans/create-pull-request@v7
+        uses: peter-evans/create-pull-request@v8
         with:
           branch: chore/update-node-version
           base: main
