@@ -37,6 +37,7 @@
 
 - **Tailwind CSS** `^4.3.0` — ユーティリティファースト CSS
 - **@tailwindcss/vite** `^4.3.0` — Vite プラグイン（`vite.config.ts` で読み込み、`app/app.css` で `@import "tailwindcss"`）
+- **フォント**：欧文 **Geist**（`@fontsource-variable/geist`）＋ 和文 **Noto Sans JP**（`@fontsource-variable/noto-sans-jp`）。`app/app.css` の `--font-sans` に両方を指定し、環境差なく表示（unicode-range 分割で必要な文字だけロード）
 
 ## UI コンポーネント（shadcn/ui）
 
