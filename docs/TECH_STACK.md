@@ -128,6 +128,7 @@ my-portfolio/
 │   │   │   └── Heading/    #     見出し h1〜h6（level prop・text-foreground でダーク対応）
 │   │   ├── layout/         #   全ページ横断のレイアウトのガワ
 │   │   │   ├── Header/     #     サイト共通ヘッダー（layout ルートで表示）
+│   │   │   ├── Footer/     #     サイト共通フッター（SNS リンク + コピーライト）
 │   │   │   ├── MobileNav/  #     モバイル用ハンバーガーメニュー（Sheet）
 │   │   │   └── ThemeToggle/ #    カラーモード切替（Light/Dark/System・localStorage 保持）
 │   │   └── ui/             #   shadcn/ui（vendored・編集しない・Biome 対象外）
