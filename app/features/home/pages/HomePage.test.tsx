@@ -1,21 +1,20 @@
 import { render, screen } from '@testing-library/react'
-import { MemoryRouter } from 'react-router'
 import { describe, expect, it } from 'vitest'
 import HomePage from './HomePage'
 
 describe('HomePage', () => {
-  it('見出しと About へのリンクを表示する', () => {
-    render(
-      <MemoryRouter>
-        <HomePage />
-      </MemoryRouter>,
-    )
+  it('ウェルカム見出しと自己紹介文を表示する', () => {
+    render(<HomePage />)
 
-    expect(screen.getByRole('heading', { name: 'Home' })).toBeInTheDocument()
-    expect(screen.getByRole('link', { name: 'About へ' })).toHaveAttribute(
-      'href',
-      '/about',
-    )
-    expect(screen.getByRole('button', { name: 'ボタン' })).toBeInTheDocument()
+    expect(
+      screen.getByRole('heading', {
+        level: 1,
+        name: "Welcome to Ryo's Portfolio!",
+      }),
+    ).toBeInTheDocument()
+    expect(screen.getByText('はじめまして。')).toBeInTheDocument()
+    expect(
+      screen.getByText('当サイトはエンジニアとしてのポートフォリオです。'),
+    ).toBeInTheDocument()
   })
 })
